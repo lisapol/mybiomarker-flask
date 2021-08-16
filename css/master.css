@@ -1,0 +1,548 @@
+@media(max-width: 1245px) {
+  .passport-section {
+    height: 80vh!important;
+    max-height: 439px!important;
+  }
+  .passport-img {
+    height: 80vh!important;
+    max-height: 439px!important;
+  }
+  h1 {
+    font-size: 28px!important;
+  }
+  .key-features {
+    grid-template-columns: 35% 35% 35%!important;
+  }
+  nav a {
+    font-size: 17px!important;
+  }
+}
+@media(max-width: 1124px) {
+  h1 {
+    font-size: 21px!important;
+  }
+  .passport-img {
+    object-fit: cover!important;
+    width: 450px!important;
+  }
+}
+@media(max-width: 960px) {
+  .BioMarker {
+    width: 150%!important;
+    left: -50%!important;
+  }
+}
+@media(max-width: 864px) {
+  .article-list {
+
+  }
+  .article-section .box-flex {
+    flex-direction: column!important;
+  }
+  .article-list {
+    width: 100%!important;
+  }
+  .form {
+    width: 60%!important;
+  }
+  .passport-img {
+    width: 330px!important;
+  }
+}
+@media(max-width: 768px) {
+  .key-features {
+    grid-template-columns: 100%!important;
+  }
+  .key-features-item {
+    flex-direction: row!important;
+    text-align: left!important;
+  }
+  .passport-img {
+    width: 250px!important;
+  }
+  .bioMarker-box {
+    grid-template-columns: 100%!important;
+  }
+  .BioMarker {
+    width: 70%!important;
+    left: -20%!important;
+  }
+  .bioMarker-content {
+    margin-top: -130px!important;
+    align-items: flex-end!important;
+  }
+  .bioMarker-content > .second-title {
+    width: 50%!important;
+    text-align: right!important;
+  }
+  header nav > a {
+    display: none!important;
+  }
+  .mobile-btn {
+    display: block!important;
+  }
+  .log-in-content {
+    grid-template-columns: 100%!important;
+  }
+  .footer-container {
+    grid-template-columns: 50% 50%!important;
+  }
+  .article-list {
+    grid-template-columns: 100%!important;
+  }
+  .btn {
+    font-size: 13px!important;
+  }
+  .form-btn {
+    font-size: 13px!important;
+  }
+}
+@media(max-width: 615px) {
+  .passport-img {
+    display: none!important;
+  }
+  .passport-section {
+    height: auto!important;
+  }
+  .passport-title-content {
+    margin: 40px 0!important;
+  }
+}
+
+@font-face {
+  font-family: rosarivo; /* Имя шрифта */
+  src: url(.././fonts/rosarivo.ttf); /* Путь к файлу со шрифтом */
+}
+
+.mobile-btn {
+  display: none;
+}
+.mobile-menu {
+  z-index: 3;
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+  background: rgba(0,0,0,.6);
+  display: none;
+}
+.mobile-menu-content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 5px;
+  width: auto;
+  min-width: 40%;
+  padding: 15px 25px;
+  height: auto;
+  background: rgba(255,255,255);
+}
+.mobile-menu-content a {
+  font-family: rosarivo;
+  color: #000;
+  font-size: 26px;
+  text-decoration: none;
+}
+.mobile-menu-content nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mibile-content-item {
+  display: flex;
+  gap: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+main {
+  position: relative;
+  padding: 0 0 150px 0;
+}
+body {
+  font-family: rosarivo;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+}
+nav {
+  padding: 10px 0;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+nav a {
+  font-family: rosarivo;
+  color: #000;
+  font-size: 26px;
+  text-decoration: none;
+}
+section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  font-family: rosarivo;
+  font-size: 36px;
+}
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: rosarivo;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+footer {
+  background: #1C1918;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+.passport-section {
+  background-image: url(.././img/bg.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+  max-height: 739px;
+}
+.passport-title-content {
+  position: relative;
+  margin: 40px 0 0 0;
+}
+.passport-title-content {
+  font-family: rosarivo;
+  font-size: 20px;
+}
+.content-item {
+  font-size: 17px;
+}
+.passport-section > .container {
+  gap: 5%;
+}
+.passport-img {
+  position: relative;
+  height: 70vh;
+  max-height: 739px;
+}
+.subscribe-btn {
+  border: 1px solid #000;
+  padding: 5px 25px;
+  border-radius: 25px;
+}
+.btn-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding:
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+.brown-btn {
+  border: 1px solid #413734;
+  background: #413734;
+  color: #fff;
+
+}
+.white-btn {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+}
+/*.container-100 {
+  position: relative;
+  display: flex;
+  width: 100%;
+}*/
+.container {
+  position: relative;
+  display: flex;
+  width: 85%;
+  max-width: 1650px;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-between {
+  justify-content: space-between;
+
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.soc-icons {
+  display: flex;
+}
+.soc-icons > img {
+  width: 24px;
+}
+header .soc-icons {
+  gap: 10px;
+}
+footer .soc-icons {
+  gap: 20px;
+}
+.about-company-section {
+  z-index: 2;
+}
+.title-content {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+.title-content > span {
+  color: #877069;
+  font-size: 15px;
+}
+.key-features {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: 25% 25% 25%;
+}
+.key-features-item {
+  display: flex;
+  background: #fff;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
+.key-features-item p {
+  margin-top: 5px;
+}
+.key-features-title {
+  font-family: rosarivo;
+  font-size: 22px;
+}
+.bioMarker-section {
+  position: relative;
+  margin-top: 300px;
+  background: #F9D9BF;
+  background-image: url(.././img/background-item.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.bioMarker-section > .container {
+  margin-top: -200px;
+}
+.bioMarker-box {
+  margin: 10% 0 0 0;
+  display: grid;
+  grid-template-columns: 40% 50%;
+  justify-content: space-between;
+}
+.BioMarker {
+  position: relative;
+  width: 100%;
+}
+.bioMarker-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+/*.bioMarker-content p {
+  font-size: 20px;
+}*/
+.second-title {
+  font-family: rosarivo;
+  font-size: 25px;
+  font-weight: bold;
+}
+.annotation {
+  color: #877069;
+}
+.background-line {
+  height: 550px;
+  position: absolute;
+  width: 100%;
+  top: -550px;
+}
+.background-line-b {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.question-list {
+  font-family: rosarivo;
+  margin: 120px 0 50px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+.question-list > li {
+  list-style-type: none;
+}
+.question-title {
+  border-bottom: 1px solid #000;
+  padding: 0 0 10px 0;
+  margin: 0 0 20px 0;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.control {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.log-in-content {
+  display: grid;
+  grid-template-columns: 50% 40%;
+  justify-content: space-between;
+}
+.log-in-content > img {
+  position: relative;
+  width: 100%;
+}
+.box-flex {
+  gap: 15px;
+  margin: 16px 0;
+  display: flex;
+}
+.article-list {
+  display: grid;
+  width: 70%;
+  grid-template-columns: auto auto;
+  gap: 45px;
+}
+.article-item {
+  font-family: rosarivo;
+  justify-content: space-between;
+  text-align: left;
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.article-title {
+  font-weight: bold;
+}
+.article-content {
+  color: #4F4F4F;
+  font-size: 12px;
+}
+.date-item {
+  color: #949494;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+.time {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+}
+.form {
+  font-family: rosarivo;
+  border-radius: 10px;
+  width: 30%;
+  padding: 25px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.form-btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #000;
+  background: #fff;
+  padding: 10px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: rosarivo;
+  font-size: 22px;
+}
+.form-input {
+  color: #878787;
+  padding: 15px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #413734;
+}
+.second-title-content {
+  z-index: 3;
+  bottom: 100px;
+  width: 100%;
+}
+.arrow-box {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+.footer-container {
+  width: 100%;
+  max-width: 1650px;
+  width: 85%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 40%;
+}
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.footer-item-title {
+  padding: 0 0 5px 0;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #fff;
+  font-size: 22px;
+}
+.footer-item a {
+  color: #F9D9BF;
+  text-decoration: none;
+}
+.question-answer {
+  transition: 1s;
+  overflow: hidden;
+}
