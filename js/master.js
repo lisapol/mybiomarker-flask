@@ -5,6 +5,8 @@ let mobile_btn = document.querySelector('.mobile-btn');
 let close = document.querySelector('.close');
 let mobile_menu = document.querySelector('.mobile-menu');
 
+let question_title = document.querySelectorAll('.question-title');
+
 
 for(let i = 0; i < control.length; i++) {
   console.log(control[i]);
@@ -27,5 +29,17 @@ mobile_btn.onclick = function() {
   mobile_menu.style.display = 'block';
   close.onclick = function() {
     mobile_menu.style.display = 'none';
+  };
+};
+
+
+for(let b = 0; b < question_title.length; b++) {
+  question_title[b].children[0].onclick = function() {
+    if(question_answer[b].style.height != 'auto') {
+      question_answer[b].style.height = 'auto';
+    }
+    else {
+      question_answer[b].style.height = 0;
+    }
   };
 };
