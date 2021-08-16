@@ -155,6 +155,19 @@
   gap: 10px;
 }
 
+#about {
+  position: relative;
+  top: -100px;
+}
+#work {
+  position: relative;
+  top: -100px;
+}
+#subscribe {
+  position: relative;
+  top: -100px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -172,7 +185,10 @@ body {
   top: 0;
 }
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  background: #fff;
   width: 100%;
   height: auto;
   display: flex;
@@ -216,7 +232,13 @@ footer {
   width: 100%;
   padding: 50px 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  justify-content: center;
+}
+.logo {
+  width: 200px;
 }
 .passport-section {
   background-image: url(.././img/bg.svg);
@@ -228,9 +250,7 @@ footer {
 }
 .passport-title-content {
   position: relative;
-  margin: 40px 0 0 0;
-}
-.passport-title-content {
+  margin: 69px 0 0 0;
   font-family: rosarivo;
   font-size: 20px;
 }
@@ -520,6 +540,7 @@ footer .soc-icons {
   align-items: center;
 }
 .footer-container {
+  margin: 20px 0 0 0;
   width: 100%;
   max-width: 1650px;
   width: 85%;
