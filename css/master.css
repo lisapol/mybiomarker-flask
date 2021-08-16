@@ -118,7 +118,7 @@
   display: none;
 }
 .mobile-menu {
-  z-index: 3;
+  z-index: 7;
   position: fixed;
   width: 100vh;
   height: 100vh;
@@ -187,7 +187,7 @@ body {
 header {
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 4;
   background: #fff;
   width: 100%;
   height: auto;
@@ -372,7 +372,7 @@ footer .soc-icons {
 }
 .bioMarker-section {
   position: relative;
-  margin-top: 300px;
+  margin-top: 200px;
   background: #F9D9BF;
   background-image: url(.././img/background-item.svg);
   background-repeat: no-repeat;
