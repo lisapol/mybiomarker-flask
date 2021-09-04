@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/master.css">
   <script src='./js/master.js' defer></script>
-  <title>Document</title>
+  <script src='./js/articles.js' defer></script>
+  <title>[[*pagetitle]]</title>
 </head>
 <body>
   <a id="top"></a>
@@ -44,6 +45,7 @@
         <div class='passport-title-content'>
           <h1>YOUR FIRST DIGITAL<br>HEALTH PASSPORT</h1>
           <p class='content-item'>Take photos of your food to get the total amount of calories it contains, fill in your activity records to see the calories remain to burn, submit your medical records and share your doctor through our user-friendly UI. </p>
+          <div class="passport-title-btn">Learn more</div>
         </div>
         <img class='passport-img' src="./img/passport-img.svg" alt="">
       </div>
@@ -81,7 +83,7 @@
       </div>
     </section>
     <section class='bioMarker-section'>
-      <a id="work"></a>
+      <img class='faq' src="./img/faq.svg" alt="">
       <img class='background-line' src="./img/background-line.png" alt="">
       <div class="container flex-column">
         <h2>Why are we called MyBioMarker?</h2>
@@ -138,7 +140,7 @@
         </div>
         <div class="btn-list">
           <a href="" class="btn brown-btn"><img src="./img/icons/telegram.svg" alt="">Telegram</a>
-          <a href="" class="btn white-btn"><img src="./img/icons/web.svg" alt="">Website</a>
+          <a href="[[~2]] target='_blank" class="btn white-btn"><img src="./img/icons/web.svg" alt="">Website</a>
         </div>
         <div class="log-in-content">
           <div>
@@ -165,6 +167,7 @@
         </div>
       </section>
       <section class='article-section'>
+        <a id="work"></a>
         <div class="container flex-column">
           <div class="title-content">
             <h2>Our Articles</h2>
@@ -172,6 +175,7 @@
           </div>
           <div class="box-flex justify-between">
             <div class="follow">
+              <img src="./img/medium-img.svg" alt="">
               <a href="" class="btn brown-btn">Follow</a>
             </div>
             <div class="article-list">
@@ -207,6 +211,7 @@
                   <div class="date-item"><div class="date">Jul 21</div><div class="time"><img src="./img/icons/time.svg" alt="">2 min read<img src="./img/icons/star.svg" alt=""></div></div>
                 </div>
               </div>
+              <div class="hide">Hide</div>
             </div>
           </div>
         </div>
@@ -221,6 +226,10 @@
             <span>Closed beta version is coming to an end. Register your interest to be notified when we launch:</span>
             <input class='form-input' type="text" name="email" value="E-mail">
             <input class='form-btn' type="submit" value="Subscribe">
+            <div class="send-file">
+              <lable for="file-input" class="file-add"><img src="./img/icons/clip.svg" alt="">Attach a file</lable for="file-input">
+              <input id="file-input" type="file">
+            </div>
             <img src="./img/form-img.svg" alt="">
           </form>
           <div class="second-title-content">

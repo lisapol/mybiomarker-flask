@@ -25,11 +25,13 @@
     object-fit: cover!important;
     width: 450px!important;
   }
+  .question-list {
+    margin: 89px 0 50px 0!important;
+  }
 }
-@media(max-width: 960px) {
-  .BioMarker {
-    width: 150%!important;
-    left: -50%!important;
+@media(max-width: 838px) {
+  .faq {
+    top: 35%!important;
   }
 }
 @media(max-width: 864px) {
@@ -48,8 +50,17 @@
   .passport-img {
     width: 330px!important;
   }
+  .follow {
+    align-items: center!important;
+  }
+  .passport-title-content {
+    margin: 89px 0 38px 0!important;
+  }
 }
 @media(max-width: 768px) {
+  .form {
+    width: 90%!important;
+  }
   .key-features {
     grid-template-columns: 100%!important;
   }
@@ -61,18 +72,18 @@
     width: 250px!important;
   }
   .bioMarker-box {
-    grid-template-columns: 100%!important;
+    /*grid-template-columns: 100%!important;*/
   }
   .BioMarker {
-    width: 70%!important;
-    left: -20%!important;
+    position: absolute!important;
+    width: 30%!important;
   }
   .bioMarker-content {
-    margin-top: -130px!important;
+    margin-top: 61px!important;
     align-items: flex-end!important;
   }
   .bioMarker-content > .second-title {
-    width: 50%!important;
+    width: 65%!important;
     text-align: right!important;
   }
   header nav > a {
@@ -96,6 +107,17 @@
   .form-btn {
     font-size: 13px!important;
   }
+  .hide {
+    display: block!important;
+  }
+  .background-line-b {
+    width: 140%!important;
+  }
+}
+@media(max-width: 695px) {
+  .faq {
+    top: 38%!important;
+  }
 }
 @media(max-width: 615px) {
   .passport-img {
@@ -103,9 +125,51 @@
   }
   .passport-section {
     height: auto!important;
+    max-height: unset!important;
   }
-  .passport-title-content {
-    margin: 40px 0!important;
+  .BioMarker {
+    width: 49%!important;
+    left: -20%!important;
+    margin-top: -59px!important;
+  }
+  .background-line-b {
+    width: 207%!important;
+  }
+}
+@media(max-width: 598px) {
+  .faq {
+    top: 45%!important;
+  }
+}
+@media(max-width: 600px) {
+  .BioMarker {
+    margin-top: 0!important;
+  }
+}
+@media(max-width: 411px) {
+  .BioMarker {
+    width: 66%!important;
+    margin-top: 0!important;
+  }
+  .faq {
+    top: 48%!important;
+    width: 100px!important;
+  }
+}
+@media(max-width: 384px) {
+  .BioMarker {
+    margin-top: 33px!important;
+  }
+}
+@media(max-width: 372px) {
+  .faq {
+    top: 50%!important;
+    width: 100px!important;
+  }
+}
+@media(max-width: 340px) {
+  .faq {
+    top: 54%!important;
   }
 }
 
@@ -168,10 +232,18 @@
   top: -100px;
 }
 
+.faq {
+  position: absolute;
+  right: 0;
+  width: 110px;
+  top: 30%;
+}
+
 * {
   box-sizing: border-box;
 }
 main {
+  overflow: hidden;
   position: relative;
   padding: 0 0 150px 0;
 }
@@ -208,6 +280,7 @@ nav a {
   text-decoration: none;
 }
 section {
+
   position: relative;
   width: 100%;
   display: flex;
@@ -216,6 +289,7 @@ section {
 h1 {
   font-family: rosarivo;
   font-size: 36px;
+  margin-bottom: 0;
 }
 h2 {
   text-transform: uppercase;
@@ -237,6 +311,12 @@ footer {
   justify-content: center;
   justify-content: center;
 }
+.follow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
 .logo {
   width: 200px;
 }
@@ -253,6 +333,9 @@ footer {
   margin: 69px 0 0 0;
   font-family: rosarivo;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .content-item {
   font-size: 17px;
@@ -276,6 +359,15 @@ footer {
   gap: 10px;
   padding:
 }
+.hide {
+  display: none;
+  background: #413734;
+  color: #fff;
+  border-radius: 25px;
+  padding: 15px 45px;
+  justefi-item: start;
+  cursor: pointer;
+}
 .btn {
   display: flex;
   align-items: center;
@@ -284,6 +376,12 @@ footer {
   padding: 10px 35px;
   border-radius: 25px;
   text-decoration: none;
+}
+.passport-title-btn {
+  background: #413734;
+  color: #fff;
+  padding: 10px 55px;
+  border-radius: 25px;
 }
 .brown-btn {
   border: 1px solid #413734;
@@ -385,7 +483,7 @@ footer .soc-icons {
 .bioMarker-box {
   margin: 0 0 0 0;
   display: grid;
-  grid-template-columns: 40% 50%;
+  grid-template-columns: auto auto;
   justify-content: space-between;
 }
 .BioMarker {
@@ -394,9 +492,10 @@ footer .soc-icons {
 }
 .bioMarker-content {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 }
 /*.bioMarker-content p {
   font-size: 20px;
@@ -419,10 +518,11 @@ footer .soc-icons {
   position: absolute;
   width: 100%;
   bottom: 0;
+  pointer-events: none;
 }
 .question-list {
   font-family: rosarivo;
-  margin: 0 0 50px 0;
+  margin: 30px 0 50px 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -451,6 +551,7 @@ footer .soc-icons {
 .log-in-content {
   display: grid;
   grid-template-columns: 50% 40%;
+  margin: 20px 0 0 0;
   justify-content: space-between;
 }
 .log-in-content > img {
@@ -466,16 +567,20 @@ footer .soc-icons {
   display: grid;
   width: 70%;
   grid-template-columns: auto auto;
+  justify-items: center;
   gap: 45px;
 }
 .article-item {
+  width: 100%;
+  overflow: hidden;
   font-family: rosarivo;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: left;
   grid-gap: 10px;
   display: grid;
   grid-template-columns: auto auto;
 }
+
 .article-title {
   font-weight: bold;
 }
@@ -566,4 +671,27 @@ footer .soc-icons {
 .question-answer {
   transition: 1s;
   overflow: hidden;
+}
+
+.send-file {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.file-add {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: 2px dashed #878787;
+  color: #878787;
+  padding: 10px;
+  cursor: pointer;
+}
+#file-input {
+  top: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }

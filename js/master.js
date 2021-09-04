@@ -5,9 +5,16 @@ let mobile_btn = document.querySelector('.mobile-btn');
 let close = document.querySelector('.close');
 let mobile_menu = document.querySelector('.mobile-menu');
 
+let file_input = document.querySelector('#file-input');
+let file_add = document.querySelector('.file-add');
+
+file_input.onclick = function() {
+  file_add.textContent = file_input.value;
+};
+
 let question_title = document.querySelectorAll('.question-title');
 
-
+/*
 for(let i = 0; i < control.length; i++) {
   console.log(control[i]);
   control[i].children[1].style.display = 'none';
@@ -23,7 +30,7 @@ for(let i = 0; i < control.length; i++) {
     };
   };
 };
-
+*/
 
 mobile_btn.onclick = function() {
   mobile_menu.style.display = 'block';
@@ -34,12 +41,18 @@ mobile_btn.onclick = function() {
 
 
 for(let b = 0; b < question_title.length; b++) {
-  question_title[b].children[0].onclick = function() {
+  control[b].children[1].style.display = 'none';
+  question_answer[b].style.height = 0;
+  question_title[b].onclick = function() {
     if(question_answer[b].style.height != 'auto') {
       question_answer[b].style.height = 'auto';
+      control[b].children[1].style.display = 'block';
+      control[b].children[0].style.display = 'none';
     }
     else {
       question_answer[b].style.height = 0;
+      control[b].children[1].style.display = 'none';
+      control[b].children[0].style.display = 'block';
     }
   };
 };
