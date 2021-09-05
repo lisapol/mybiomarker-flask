@@ -320,6 +320,10 @@ footer {
 .logo {
   width: 200px;
 }
+.telegram {
+  width: 200px;
+  height: 590px;
+}
 .passport-section {
   background-image: url(.././img/bg.svg);
   background-repeat: no-repeat;
