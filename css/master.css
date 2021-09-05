@@ -325,6 +325,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: #ffcee7;
   height: 70vh;
   max-height: 739px;
 }
@@ -382,6 +383,7 @@ footer {
   color: #fff;
   padding: 10px 55px;
   border-radius: 25px;
+  text-decoration: none;
 }
 .brown-btn {
   border: 1px solid #413734;
@@ -471,7 +473,7 @@ footer .soc-icons {
 .bioMarker-section {
   position: relative;
   margin-top: 200px;
-  background: #F9D9BF;
+  background: #e1b1ba;
   background-image: url(.././img/background-item.svg);
   background-repeat: no-repeat;
   background-size: cover;
