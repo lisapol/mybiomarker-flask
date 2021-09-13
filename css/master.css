@@ -232,12 +232,13 @@
   top: -100px;
 }
 
-.faq {
+.faaq {
   position: absolute;
   right: 0;
   width: 110px;
-  top: 30%;
+  top: 57%;
 }
+
 
 * {
   box-sizing: border-box;
@@ -267,6 +268,15 @@ header {
   justify-content: center;
   box-shadow: 0 5px 10px rgba(0,0,0,.3);
 }
+.mybiobox-section {
+  background-image: url(.././img/bg-2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #ffcee7;
+  height: 70vh;
+  max-height: 739px;
+}
 nav {
   padding: 10px 0;
   gap: 20px;
@@ -280,7 +290,6 @@ nav a {
   text-decoration: none;
 }
 section {
-
   position: relative;
   width: 100%;
   display: flex;
@@ -308,7 +317,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   justify-content: center;
 }
 .follow {
@@ -391,7 +399,7 @@ footer {
 }
 .brown-btn {
   border: 1px solid #413734;
-  background: #413734;
+  background: #0088cc;
   color: #fff;
 
 }
@@ -434,7 +442,7 @@ header .soc-icons {
   gap: 10px;
 }
 footer .soc-icons {
-  gap: 20px;
+  gap: 25px;
 }
 .about-company-section {
   z-index: 2;
@@ -547,6 +555,7 @@ footer .soc-icons {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 .control {
   display: flex;
@@ -651,7 +660,7 @@ footer .soc-icons {
   align-items: center;
 }
 .footer-container {
-  margin: 20px 0 0 0;
+  margin: 10px 0 0 0;
   width: 100%;
   max-width: 1650px;
   width: 85%;
