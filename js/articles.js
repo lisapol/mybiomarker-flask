@@ -18,7 +18,7 @@ if(window.innerWidth <= 768) {
   for(let i = 2; i < 4; i++) {
     article_list.children[i].style.display = 'none';
   }
-}
+};
 /*
 window.addEventListener(`resize`, function() {
   if(window.innerWidth <= 768) {
@@ -37,3 +37,12 @@ window.addEventListener(`resize`, function() {
   };
 });
 */
+var button = document.getElementById("example-three");
+button.addEventListener('click', function() {
+  if (button.getAttribute("data-text-swap") == button.innerHTML) {
+    button.innerHTML = button.getAttribute("data-text-original");
+  } else {
+    button.setAttribute("data-text-original", button.innerHTML);
+    button.innerHTML = button.getAttribute("data-text-swap");
+  }
+}, false);

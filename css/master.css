@@ -232,13 +232,9 @@
   top: -100px;
 }
 
-.faaq {
-  position: absolute;
-  right: 0;
-  width: 110px;
-  top: 57%;
+img {
+  float: right;
 }
-
 
 * {
   box-sizing: border-box;
@@ -273,7 +269,7 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #ffcee7;
+  background-color: #e1b1ba;
   height: 70vh;
   max-height: 739px;
 }
@@ -378,7 +374,7 @@ footer {
   color: #fff;
   border-radius: 25px;
   padding: 15px 45px;
-  justefi-item: start;
+  justify-item: start;
   cursor: pointer;
 }
 .btn {
