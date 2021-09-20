@@ -45,12 +45,11 @@ var modal = null
 function pop() {
     var email = document.getElementById("form-input").value;
 //    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-//    console.log(re.test(email))
+//    console.log(email)
     if(email !== "") {
        if(modal === null) {
          document.getElementById("box").style.display = "block";
          modal = true
-         console.log(email)
        } else {
          document.getElementById("box").style.display = "none";
          modal = null
