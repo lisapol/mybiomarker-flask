@@ -235,16 +235,24 @@
           <div class="title-content">
             <h2>SUBSCRIBE</h2>
           </div>
+
+
           <form class='form' action="">
             <span>Closed beta version is coming to an end. Register your interest to be notified when we launch.</span>
-            <input class='form-input' type="text" name="email" required>
-            <input class='form-btn' type="submit" value="Subscribe">
+            <input class='form-input' id='form-input' type="text" name="email" required autofocus />
+            <input class='btn_popup' onclick="pop()" type="submit" value="Subscribe">
             <div class="send-file">
-<!--              <lable for="file-input" class="file-add"><img src="./img/icons/clip.svg" alt="">Attach a file</lable for="file-input">-->
-              <input id="file-input" type="file">
+              <input id="file-input">
+                  <div id="box">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thanks for subscribing!</h3>
+                    <a class="close" onclick="pop()">Back</a>
+              </div>
             </div>
             <img src="./img/form-img.svg" alt="">
           </form>
+
+
           <div class="second-title-content">
             <div class="second-title">Do you want to get to know more about MyBioMarker ?</div>
             <hr>

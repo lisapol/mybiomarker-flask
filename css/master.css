@@ -704,3 +704,47 @@ footer .soc-icons {
   height: 100%;
   opacity: 0;
 }
+.btn_popup{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #000;
+  background: #fff;
+  padding: 10px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: rosarivo;
+  font-size: 22px;
+}
+#box{
+  width: 500px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+#box span{
+  color: hotpink;
+  font-size: 40px;
+  display: block;
+  margin: 20px 0;
+}
+#box h1{
+  color: black
+}
+.close{
+  font-size: 18px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #0088cc;
+  display: inline-block;
+  border-radius: 25px;

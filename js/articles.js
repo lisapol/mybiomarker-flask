@@ -37,12 +37,16 @@ window.addEventListener(`resize`, function() {
   };
 });
 */
-var button = document.getElementById("example-three");
-button.addEventListener('click', function() {
-  if (button.getAttribute("data-text-swap") == button.innerHTML) {
-    button.innerHTML = button.getAttribute("data-text-original");
-  } else {
-    button.setAttribute("data-text-original", button.innerHTML);
-    button.innerHTML = button.getAttribute("data-text-swap");
-  }
-}, false);
+//var theForm = document.getElementById('form');
+//theForm.addEventListener('submit', function(event) {
+//  event.preventDefault();
+
+var modal = null
+function pop() {
+   if(modal === null) {
+     document.getElementById("box").style.display = "block";
+     modal = true
+   } else {
+     document.getElementById("box").style.display = "none";
+     modal = null
+}}
