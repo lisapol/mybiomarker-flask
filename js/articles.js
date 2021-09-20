@@ -44,9 +44,9 @@ window.addEventListener(`resize`, function() {
 var modal = null
 function pop() {
     var email = document.getElementById("form-input").value;
-    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    console.log(re.test(email))
-    if(email !== "" && (re.test(email))) {
+//    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+//    console.log(re.test(email))
+    if(email !== "") {
        if(modal === null) {
          document.getElementById("box").style.display = "block";
          modal = true
