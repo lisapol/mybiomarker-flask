@@ -43,10 +43,17 @@ window.addEventListener(`resize`, function() {
 
 var modal = null
 function pop() {
-   if(modal === null) {
-     document.getElementById("box").style.display = "block";
-     modal = true
-   } else {
-     document.getElementById("box").style.display = "none";
-     modal = null
-}}
+    var email = document.getElementById("form-input").value;
+    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    console.log(re.test(email))
+    if(email !== "" && (re.test(email))) {
+       if(modal === null) {
+         document.getElementById("box").style.display = "block";
+         modal = true
+         console.log(email)
+       } else {
+         document.getElementById("box").style.display = "none";
+         modal = null
+         }
+       }
+    }

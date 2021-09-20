@@ -238,16 +238,15 @@
 
 
           <form class='form' action="">
-            <span>Closed beta version is coming to an end. Register your interest to be notified when we launch.</span>
-            <input class='form-input' id='form-input' type="text" name="email" required autofocus />
+            <label for="form-input">Closed beta version is coming to an end. Register your interest to be notified when we launch.</label>
+            <input class='form-input' id='form-input' type="e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" required>
             <input class='btn_popup' onclick="pop()" type="submit" value="Subscribe">
             <div class="send-file">
               <input id="file-input">
                   <div id="box">
-                    <i class="fas fa-check-circle"></i>
                     <h3>Thanks for subscribing!</h3>
                     <a class="close" onclick="pop()">Back</a>
-              </div>
+                  </div>
             </div>
             <img src="./img/form-img.svg" alt="">
           </form>
