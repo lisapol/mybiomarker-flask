@@ -1,8 +1,9 @@
 import os
+import time
 
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template
-from flask_mail import Mail
+from flask import Flask, render_template, request, redirect, url_for
+from flask_mail import Mail, Message
 
 # export FLASK_APP=app.py
 app = Flask(__name__)
@@ -15,9 +16,9 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT']   = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-# app.config['MAIL_USERNAME'] = os.environ['EMAIL_USER']
-# app.config['MAIL_PASSWORD'] = os.environ['EMAIL_PASSWORD']
-app.config['MAIL_DEFAULT_SENDER'] = ('Elizaveta Poluboiarinova', 'elizaveta.olariu@gmail.com')
+app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = ('MyBioMarker', 'elizaveta.olariu@gmail.com')
 
 mail = Mail(app)
 # from app import mail
@@ -68,8 +69,35 @@ class User(db.Model):
 # User.query.all()
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        recipient = request.form['email']
+        print(recipient)
+
+        user = User.query.filter_by(email=recipient).first()
+        print(user)
+
+
+        if user is None:
+            print(f" *** {user} Not found")
+            user = User(email=recipient)
+            db.session.add(user)
+            db.session.commit()
+            msg = Message('MyBioMarker Subscription', recipients=[recipient])
+            msg.body = ('MyBioMarker Subscription.')
+            msg.html = ('<h1>MyBioMarker Subscription</h1>'
+                        '<p>Thank you for subscription to MyBioMarker newsletter!</p>')
+            try:
+                mail.send(msg)
+            except:
+                time.sleep(3)
+                # return redirect(url_for('index'))
+        else:
+            print('hello')
+            time.sleep(3)
+            # return redirect(url_for('index'))
+
     return render_template("index.html")
 
 @app.shell_context_processor
