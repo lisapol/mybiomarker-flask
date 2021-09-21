@@ -1,0 +1,4 @@
+.DS_Store
+.idea/
+mybiomarker/static/img/
+mybiomarker/__pycache__/
