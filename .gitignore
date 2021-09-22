@@ -3,3 +3,4 @@
 mybiomarker/static/img/
 mybiomarker/__pycache__/
 .env
+venv

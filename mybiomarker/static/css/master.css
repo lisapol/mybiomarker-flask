@@ -334,7 +334,7 @@ footer {
   background-position: center;
   background-size: cover;
   background-color: #e1b1ba;
-  height: 70vh;
+  height: 85vh;
   max-height: 739px;
 }
 .passport-title-content {
@@ -347,14 +347,15 @@ footer {
   align-items: center;
 }
 .content-item {
-  font-size: 17px;
+  font-size: 16px;
+  text-align: justify;
 }
 .passport-section > .container {
   gap: 5%;
 }
 .passport-img {
   position: relative;
-  height: 70vh;
+  height: 85vh;
   max-height: 739px;
 }
 .subscribe-btn {
