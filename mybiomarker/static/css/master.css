@@ -121,7 +121,7 @@
 }
 @media(max-width: 615px) {
   .passport-img {
-    display: none!important;
+    object-fit: cover!important;
   }
   .passport-section {
     height: auto!important;
