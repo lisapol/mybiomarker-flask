@@ -23,7 +23,6 @@
   }
   .passport-img {
     object-fit: cover!important;
-    width: 450px!important;
   }
   .question-list {
     margin: 89px 0 50px 0!important;
@@ -69,7 +68,9 @@
     text-align: left!important;
   }
   .passport-img {
+    float: right;
     width: 250px!important;
+
   }
   .bioMarker-box {
     /*grid-template-columns: 100%!important;*/
@@ -121,6 +122,11 @@
 }
 @media(max-width: 615px) {
   .passport-img {
+    display: none!important;
+    object-fit: cover!important;
+  }
+  .passport-img-2 {
+    display: none!important;
     object-fit: cover!important;
   }
   .passport-section {
@@ -177,7 +183,12 @@
   font-family: rosarivo; /* Имя шрифта */
   src: url(.././fonts/rosarivo.ttf); /* Путь к файлу со шрифтом */
 }
+@media screen and (min-width: 600px) {
+  /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+ .mobile-hide {
+    display: none !important;}
 
+}
 .mobile-btn {
   display: none;
 }
@@ -339,12 +350,13 @@ footer {
 }
 .passport-title-content {
   position: relative;
-  margin: 69px 0 0 0;
+  margin: 74px 0 0 0;
   font-family: rosarivo;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  float:left;
 }
 .content-item {
   font-size: 16px;
@@ -393,6 +405,7 @@ footer {
   padding: 10px 55px;
   border-radius: 25px;
   text-decoration: none;
+  font-size: 15px;
 }
 .brown-btn {
   background: #0088cc;
