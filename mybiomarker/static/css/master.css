@@ -31,6 +31,7 @@
 @media(max-width: 838px) {
   .faq {
     top: 35%!important;
+
   }
 }
 @media(max-width: 864px) {
@@ -53,7 +54,7 @@
     align-items: center!important;
   }
   .passport-title-content {
-    margin: 70px 0 38px 0!important;
+    margin: 72px 0 38px 0!important;
   }
 }
 @media(max-width: 768px) {
@@ -352,7 +353,7 @@ footer {
 }
 .passport-title-content {
   position: relative;
-  margin: 74px 0 0 0;
+  margin: 70px 0 0 0;
   font-family: rosarivo;
   font-size: 20px;
   flex-direction: column;
@@ -403,7 +404,7 @@ footer {
 .passport-title-btn {
   background: #413734;
   color: #fff;
-  padding: 10px 55px;
+  padding: 10px 15px;
   border-radius: 25px;
   text-decoration: none;
   font-size: 15px;
