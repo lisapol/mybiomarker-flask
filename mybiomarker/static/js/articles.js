@@ -1,4 +1,5 @@
 'use strict';
+
 //let article_list = document.querySelector('.article-list');
 //let hide = document.querySelector('.hide');
 //
@@ -55,4 +56,10 @@ function pop() {
          modal = null
          }
        }
-    }
+    };
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollX": true
+    } );
+} );

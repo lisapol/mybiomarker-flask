@@ -246,10 +246,6 @@
   top: -100px;
 }
 
-img {
-  float: right;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -372,6 +368,9 @@ footer {
   height: 85vh;
   max-height: 739px;
 }
+.img1 {
+  position: relative;
+}
 .subscribe-btn {
   border: 1px solid #000;
   padding: 5px 25px;
@@ -459,6 +458,9 @@ footer .soc-icons {
 .about-company-section {
   z-index: 2;
 }
+.mybiobox-section {
+  z-index: 2;
+ }
 .title-content {
   position: relative;
   width: 100%;
@@ -765,3 +767,20 @@ footer .soc-icons {
   background: #0088cc;
   display: inline-block;
   border-radius: 25px;
+  }
+
+div.scrollmenu {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: white;
+}
