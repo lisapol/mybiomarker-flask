@@ -181,6 +181,7 @@
 
 @font-face {
   font-family: rosarivo; /* Имя шрифта */
+  src: url(.././fonts/rosarivo.ttf); /* Путь к файлу со шрифтом */
 }
 @media screen and (min-width: 600px) {
   /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
