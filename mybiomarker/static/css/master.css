@@ -4,7 +4,7 @@
     max-height: 439px!important;
   }
   .passport-img {
-    height: 80vh!important;
+    height: 81vh!important;
     max-height: 439px!important;
   }
   h1 {
@@ -22,7 +22,9 @@
     font-size: 31px!important;
   }
   .passport-img {
-    object-fit: cover!important;
+    float: right;
+    width: 350px!important;
+
   }
   .question-list {
     margin: 89px 0 50px 0!important;
@@ -31,12 +33,10 @@
 @media(max-width: 838px) {
   .faq {
     top: 35%!important;
-
   }
 }
 @media(max-width: 864px) {
   .article-list {
-
   }
   .article-section .box-flex {
     flex-direction: column!important;
@@ -48,7 +48,7 @@
     width: 60%!important;
   }
   .passport-img {
-    width: 330px!important;
+    width: 300px!important;
   }
   .follow {
     align-items: center!important;
@@ -120,6 +120,10 @@
   .faq {
     top: 38%!important;
   }
+.passport-img {
+display: none!important;
+object-fit: cover!important;
+}
 }
 @media(max-width: 615px) {
   .passport-img {
