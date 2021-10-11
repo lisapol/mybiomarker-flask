@@ -429,6 +429,12 @@ footer {
   display: flex;
   width: 85%;
   max-width: 1650px;
+}
+.container_2 {
+  position: relative;
+  display: flex;
+  width: 85%;
+  max-width: 1650px;
   overflow: auto;
 }
 .flex-column {
