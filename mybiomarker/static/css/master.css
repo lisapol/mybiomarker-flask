@@ -1,11 +1,26 @@
+@media(max-width: 2245px) {
+  .content-item {
+  text-align: justify;
+  font-size: 29px;
+}
+.passport-title-btn {
+  background: #413734;
+  color: #fff;
+  padding: 15px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 19px;
+  position: static;
+}
+}
 @media(max-width: 1245px) {
   .passport-section {
     height: 80vh!important;
-    max-height: 350px!important;
+    max-height: 320px!important;
   }
   .passport-img {
     height: 81vh!important;
-    max-height: 350px!important;
+    max-height: 320px!important;
   }
   h1 {
     font-size: 31px!important;
@@ -16,6 +31,19 @@
   nav a {
     font-size: 17px!important;
   }
+  .content-item {
+  text-align: justify;
+  font-size: 19px;
+}
+.passport-title-btn {
+  background: #413734;
+  color: #fff;
+  padding: 15px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 19px;
+  position: static;
+}
 }
 @media(max-width: 1124px) {
   h1 {
@@ -23,17 +51,43 @@
   }
   .passport-img {
     float: right;
-    width: 350px!important;
+    width: 320px!important;
 
   }
   .question-list {
     margin: 89px 0 50px 0!important;
   }
+  .content-item {
+  text-align: justify;
+  font-size: 19px;
+}
+.passport-title-btn {
+  background: #413734;
+  color: #fff;
+  padding: 15px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 19px;
+  position: static;
+}
 }
 @media(max-width: 838px) {
   .faq {
     top: 35%!important;
   }
+  .content-item {
+  text-align: justify;
+  font-size: 17px;
+}
+.passport-title-btn {
+  background: #413734;
+  color: #fff;
+  padding: 12px 12px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 17px;
+  position: static;
+}
 }
 @media(max-width: 864px) {
   .article-list {
@@ -56,9 +110,17 @@
   .passport-title-content {
     margin: 72px 0 38px 0!important;
   }
+  .content-item {
+  text-align: justify;
+  font-size: 17px;
+}
 
 }
 @media(max-width: 768px) {
+.content-item {
+  text-align: justify;
+  font-size: 16px;
+}
   .form {
     width: 90%!important;
   }
@@ -358,15 +420,11 @@ footer {
   position: relative;
   margin: 70px 0 0 0;
   font-family: rosarivo;
-  font-size: 19px;
   flex-direction: column;
   align-items: center;
   float:left;
 }
-.content-item {
-  text-align: justify;
-  font-size: 19px;
-}
+
 .passport-section > .container {
   gap: 5%;
 }
@@ -404,15 +462,7 @@ footer {
   border-radius: 25px;
   text-decoration: none;
 }
-.passport-title-btn {
-  background: #413734;
-  color: #fff;
-  padding: 15px 15px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 16px;
-  position: static;
-}
+
 .brown-btn {
   background: #0088cc;
   color: #fff;
