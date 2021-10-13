@@ -1,11 +1,11 @@
 @media(max-width: 1245px) {
   .passport-section {
     height: 80vh!important;
-    max-height: 439px!important;
+    max-height: 350px!important;
   }
   .passport-img {
     height: 81vh!important;
-    max-height: 439px!important;
+    max-height: 350px!important;
   }
   h1 {
     font-size: 31px!important;
@@ -56,6 +56,7 @@
   .passport-title-content {
     margin: 72px 0 38px 0!important;
   }
+
 }
 @media(max-width: 768px) {
   .form {
@@ -73,6 +74,7 @@
     width: 250px!important;
 
   }
+
   .bioMarker-box {
     /*grid-template-columns: 100%!important;*/
   }
@@ -120,9 +122,10 @@
   .faq {
     top: 38%!important;
   }
+
 .passport-img {
-display: none!important;
-object-fit: cover!important;
+    display: none!important;
+    object-fit: cover!important;
 }
 }
 @media(max-width: 615px) {
