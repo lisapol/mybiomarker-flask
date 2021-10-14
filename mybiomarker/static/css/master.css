@@ -752,6 +752,14 @@ footer .soc-icons {
   border-bottom: 1px solid #fff;
   font-size: 22px;
 }
+
+.disclaimer {
+  font-size: 11px;
+  text-align: center;
+  width: 85%;
+  text-align:justify
+}
+
 .footer-item a {
   color: #F9D9BF;
   text-decoration: none;
