@@ -1,7 +1,15 @@
 @media(max-width: 2245px) {
+  .passport-section {
+    height: 80vh!important;
+    max-height: 620px!important;
+  }
+  .passport-img {
+    height: 81vh!important;
+    max-height: 620px!important;
+  }
   .content-item {
   text-align: justify;
-  font-size: 29px;
+  font-size: 28px;
 }
 .passport-title-btn {
   background: #413734;
@@ -423,7 +431,8 @@ footer {
   font-family: rosarivo;
   flex-direction: column;
   align-items: center;
-  float:left;
+  float: left;
+  text-align: center;
 }
 
 .passport-section > .container {
