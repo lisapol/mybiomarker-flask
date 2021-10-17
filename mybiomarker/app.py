@@ -9,7 +9,9 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 
 db_directory = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(db_directory, 'dbusers.sqlite')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(db_directory, 'dbusers.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://syutixbvnoarbe:c821a3fea21e09ea1aca6d4ca83da4f68d3cd20928820c53f6b01e425548b08a@ec2-34-242-89-204.eu-west-1.compute.amazonaws.com:5432/dvtng5ubn3l7b'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -96,6 +98,7 @@ def index():
         else:
             print('hello')
             time.sleep(3)
+            # return  redirect(request.referrer)
             # return redirect(url_for('index'))
 
     return render_template("index.html")
@@ -105,5 +108,6 @@ def make_shell_context():
     return dict(db=db, email=User)
 
 if __name__ == "__main__":
+    # app.debug = True
     app.run()
     # pass

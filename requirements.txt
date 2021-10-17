@@ -8,3 +8,4 @@ Werkzeug==2.0.1
 flask-sqlalchemy
 flask-login
 flask-mail
+psycopg2-binary
