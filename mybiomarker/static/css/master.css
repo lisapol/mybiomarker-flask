@@ -31,7 +31,7 @@
     max-height: 420px!important;
   }
   h1 {
-    font-size: 31px!important;
+    font-size: 29px!important;
   }
   .key-features {
     grid-template-columns: 35% 35% 35%!important;
@@ -80,6 +80,9 @@
 }
 }
 @media(max-width: 838px) {
+  h1 {
+    font-size: 29px!important;
+  }
   .faq {
     top: 35%!important;
   }
@@ -125,6 +128,9 @@
 
 }
 @media(max-width: 768px) {
+  h1 {
+    font-size: 31px!important;
+  }
 .content-item {
   text-align: justify;
   font-size: 16px;
@@ -189,6 +195,9 @@
   }
 }
 @media(max-width: 695px) {
+  h1 {
+    font-size: 31px!important;
+  }
   .faq {
     top: 38%!important;
   }
@@ -199,6 +208,9 @@
 }
 }
 @media(max-width: 615px) {
+  h1 {
+    font-size: 31px!important;
+  }
   .passport-img {
     display: none!important;
     object-fit: cover!important;
@@ -221,11 +233,17 @@
   }
 }
 @media(max-width: 598px) {
+  h1 {
+    font-size: 31px!important;
+  }
   .faq {
     top: 45%!important;
   }
 }
 @media(max-width: 600px) {
+  h1 {
+    font-size: 31px!important;
+  }
   .BioMarker {
     margin-top: 0!important;
   }
