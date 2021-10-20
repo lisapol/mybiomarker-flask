@@ -9,7 +9,7 @@
   }
   .content-item {
   text-align: justify;
-  font-size: 25px;
+  font-size: 20px;
 }
 .passport-title-btn {
   background: #413734;
@@ -17,7 +17,7 @@
   padding: 15px 15px;
   border-radius: 25px;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 17px;
   position: static;
 }
 }
@@ -49,7 +49,7 @@
   padding: 15px 15px;
   border-radius: 25px;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 17px;
   position: static;
 }
 }
@@ -75,7 +75,7 @@
   padding: 15px 15px;
   border-radius: 25px;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 17px;
   position: static;
 }
 }
