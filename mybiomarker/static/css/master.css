@@ -1,7 +1,15 @@
 @media(max-width: 2245px) {
+  .passport-section {
+    height: 80vh!important;
+    max-height: 420px!important;
+  }
+  .passport-img {
+    height: 81vh!important;
+    max-height: 420px!important;
+  }
   .content-item {
   text-align: justify;
-  font-size: 29px;
+  font-size: 25px;
 }
 .passport-title-btn {
   background: #413734;
@@ -16,11 +24,11 @@
 @media(max-width: 1245px) {
   .passport-section {
     height: 80vh!important;
-    max-height: 320px!important;
+    max-height: 420px!important;
   }
   .passport-img {
     height: 81vh!important;
-    max-height: 320px!important;
+    max-height: 420px!important;
   }
   h1 {
     font-size: 31px!important;
