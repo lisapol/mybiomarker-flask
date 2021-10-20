@@ -1,4 +1,8 @@
 @media(max-width: 2245px) {
+  h1 {
+    font-size: 31px!important;
+
+  }
   .passport-section {
     height: 80vh!important;
     max-height: 420px!important;
@@ -7,9 +11,9 @@
     height: 81vh!important;
     max-height: 420px!important;
   }
-  .content-item {
+ .content-item {
   text-align: justify;
-  font-size: 20px;
+  font-size: 19px;
 }
 .passport-title-btn {
   background: #413734;
