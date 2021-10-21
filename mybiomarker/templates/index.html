@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../static/css/master.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src='../static/js/master.js' defer></script>
   <script src='../static/js/articles.js' defer></script>
   <title>MyBioMarker</title>
@@ -147,6 +148,7 @@
         <ul class="question-list">
           <li>
             <div class="question-title"><span>Why should I use MyBioMarker?</span> <div class="control"><img src="../static/img/plus.svg" alt=""><img src="../static/img/minus.svg" alt=""></div></div>
+            <input id="file-input">
             <div class="question-answer">
               MyBioMarker is able to do three important things for you:
               <p> - keep your records in one place; </p>
@@ -291,17 +293,20 @@
           <form class='form' action="" method="post">
             <label for="form-input" style="font-size:19px">
               Subscribe our weekly newspaper about health tips! And we will also let you know when we launch.
-<!--              Closed beta version is coming to an end. Register your interest to be notified when we launch.-->
             </label>
-            <input class='form-input' id='form-input' type="e-mail" name="email" required>
+            <input class='form-input' id='form-input' type="email" name="email" required>
 <!--            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"-->
-            <input class='btn_popup' onclick="pop()" type="submit" value="Subscribe">
+            <input class='btn_popup' type="submit" value="Subscribe">
             <div class="send-file">
-              <input id="file-input">
-                  <div id="box">
-                    <h3>Thanks for subscribing!</h3>
-                    <a class="close" onclick="pop()">Back</a>
-                  </div>
+              	<div id="successAlert" role="alert" style="display:none;width: 500px;overflow: hidden;background: white;box-shadow: 0 0 10px black;border-radius: 10px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;padding: 10px;text-align: center;"></div>
+	            <div id="errorAlert" role="alert" style="display:none;width: 500px;overflow: hidden;background: white;box-shadow: 0 0 10px black;border-radius: 10px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;padding: 10px;text-align: center;"></div>
+
+<!--                  <div id="box">-->
+<!--                    <h3>Thanks for subscribing!</h3>-->
+<!--                    <a class="close" onclick="pop()">Back</a>-->
+<!--                  </div>-->
+
+
             </div>
             <img src="../static/img/form-img.svg" alt="">
           </form>

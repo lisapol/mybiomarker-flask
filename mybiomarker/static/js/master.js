@@ -14,6 +14,7 @@ file_input.onclick = function() {
 
 let question_title = document.querySelectorAll('.question-title');
 
+
 /*
 for(let i = 0; i < control.length; i++) {
   console.log(control[i]);
@@ -56,3 +57,34 @@ for(let b = 0; b < question_title.length; b++) {
     }
   };
 };
+
+$(document).ready(function() {
+
+	$('form').on('submit', function(event) {
+
+		$.ajax({
+			data : {
+//				name : $('#nameInput').val(),
+				email : $('#form-input').val()
+			},
+			type : 'POST',
+			url : '/process'
+		})
+		.done(function(data) {
+
+			if (data.error) {
+				$('#errorAlert').text(data.error).fadeIn().fadeOut(3500);
+				$('#successAlert').hide();
+			}
+			else {
+				$('#successAlert').text(data.name).fadeIn().fadeOut(3500);
+				$('#errorAlert').hide();
+			}
+
+		});
+
+		event.preventDefault();
+
+	});
+
+});
