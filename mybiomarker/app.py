@@ -80,7 +80,7 @@ def process():
         recipient = request.form['email']
 
         user = User.query.filter_by(email=recipient).first()
-        user = user.lower()
+        user = str(user).lower()
 
         if user is None:
             print(f" *** {user} Not found")
