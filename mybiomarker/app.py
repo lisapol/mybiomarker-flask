@@ -2,7 +2,7 @@ import os
 import time
 
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_mail import Mail, Message
 
 # export FLASK_APP=app.py
@@ -69,17 +69,17 @@ class User(db.Model):
 # db.session.add(user2)
 # db.session.commit()
 # User.query.all()
-
-
-@app.route("/", methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template("index.html")
+
+
+@app.route("/process", methods=['POST'])
+def process():
     if request.method == 'POST':
         recipient = request.form['email']
-        print(recipient)
 
         user = User.query.filter_by(email=recipient).first()
-        print(user)
-
 
         if user is None:
             print(f" *** {user} Not found")
@@ -93,19 +93,17 @@ def index():
             try:
                 mail.send(msg)
             except:
-                time.sleep(3)
-                # return redirect(url_for('index'))
+                pass
+            return jsonify({'name': 'Thanks for subscribing!❤️️'})
         else:
-            print('hello')
-            time.sleep(3)
-            # return  redirect(request.referrer)
-            # return redirect(url_for('index'))
+            return jsonify({'error': 'You have been subscribed earlier ❤️'})
 
-    return render_template("index.html")
+    return jsonify({'name': user})
 
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, email=User)
+
 
 if __name__ == "__main__":
     # app.debug = True
