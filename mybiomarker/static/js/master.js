@@ -107,26 +107,26 @@ const consentPropertyName = 'jdc_consent';
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
 const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 
-window.onload = () => {
-
-    const acceptFn = event => {
-        saveToStorage(storageType);
-        consentPopup.classList.add('hidden');
-    }
-
-    const consentPopup = document.getElementById('consent-popup');
-    const acceptBtn = document.getElementById('accept');
-    acceptBtn.addEventListener('click', acceptFn);
-    console.log(shouldShowPopup(storageType));
-
-    if (shouldShowPopup(storageType)) {
-        setTimeout(() => {
-//            consentPopup.classList.remove('hidden');
-        document.getElementById('consent-popup').style.display = "none";
-        }, 200);
-    }
-
-};
+//window.onload = () => {
+//
+//    const acceptFn = event => {
+//        saveToStorage(storageType);
+//        consentPopup.classList.add('hidden');
+//    }
+//
+//    const consentPopup = document.getElementById('consent-popup');
+//    const acceptBtn = document.getElementById('accept');
+//    acceptBtn.addEventListener('click', acceptFn);
+//    console.log(shouldShowPopup(storageType));
+//
+//    if (shouldShowPopup(storageType)) {
+//        setTimeout(() => {
+////            consentPopup.classList.remove('hidden');
+//        document.getElementById('consent-popup').style.display = "none";
+//        }, 200);
+//    }
+//
+//};
 
 $( "#accept" ).click(function() {
   $( "#consent-popup" ).fadeOut( "fast", function() {
