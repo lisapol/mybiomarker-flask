@@ -133,3 +133,9 @@ $( "#accept" ).click(function() {
     // Animation complete.
   });
 });
+
+$( "#deny" ).click(function() {
+  $( "#consent-popup" ).fadeOut( "fast", function() {
+    // Animation complete.
+  });
+});
