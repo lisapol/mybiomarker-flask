@@ -884,3 +884,18 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: white;
 }
+
+#consent-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 4rem;
+    background-color: #fff;
+    transition: opacity 1s ease;
+    z-index:999;
+    font-family: rosarivo;
+    &.hidden {
+        opacity: 0;
+    }
+}
