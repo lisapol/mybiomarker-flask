@@ -117,19 +117,18 @@
   .form {
     width: 60%!important;
   }
-  .passport-img {
-    width: 300px!important;
-  }
+
   .follow {
     align-items: center!important;
-  }
-  .passport-title-content {
-    margin: 72px 0 38px 0!important;
   }
   .content-item {
   text-align: justify;
   font-size: 17px;
 }
+  .passport-img {
+    float: right;
+    width: 250px!important;
+  }
 
 }
 @media(max-width: 884px) {
@@ -153,7 +152,6 @@
   .passport-img {
     float: right;
     width: 250px!important;
-
   }
 
   .bioMarker-box {
@@ -243,6 +241,9 @@
   }
   .faq {
     top: 45%!important;
+  }
+  .passport-title-content {
+   margin: 72px 0 38px 0!important;
   }
 }
 @media(max-width: 600px) {
@@ -786,7 +787,7 @@ footer .soc-icons {
 }
 
 .disclaimer {
-  font-size: 11px;
+  font-size: 10px;
   text-align: center;
   width: 85%;
   text-align:justify
