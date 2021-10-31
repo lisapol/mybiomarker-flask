@@ -103,39 +103,42 @@ const cookieStorage = {
 }
 
 const storageType = cookieStorage;
+console.log(cookieStorage)
 const consentPropertyName = 'jdc_consent';
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
+//console.log(shouldShowPopup('False'))
 const saveToStorage = () => storageType.setItem(consentPropertyName, true);
+console.log(saveToStorage(storageType))
 
-//window.onload = () => {
-//
-//    const acceptFn = event => {
-//        saveToStorage(storageType);
-//        consentPopup.classList.add('hidden');
-//    }
-//
-//    const consentPopup = document.getElementById('consent-popup');
-//    const acceptBtn = document.getElementById('accept');
-//    acceptBtn.addEventListener('click', acceptFn);
-//    console.log(shouldShowPopup(storageType));
-//
-//    if (shouldShowPopup(storageType)) {
-//        setTimeout(() => {
-////            consentPopup.classList.remove('hidden');
-//        document.getElementById('consent-popup').style.display = "none";
-//        }, 200);
-//    }
-//
-//};
+window.onload = () => {
 
-$( "#accept" ).click(function() {
-  $( "#consent-popup" ).fadeOut( "fast", function() {
-    // Animation complete.
-  });
-});
+    const acceptFn = event => {
+        saveToStorage(storageType);
+        consentPopup.classList.add('hidden');
+    }
 
-$( "#deny" ).click(function() {
-  $( "#consent-popup" ).fadeOut( "fast", function() {
-    // Animation complete.
-  });
-});
+    const consentPopup = document.getElementById('consent-popup');
+    const acceptBtn = document.getElementById('accept');
+    acceptBtn.addEventListener('click', acceptFn);
+    console.log(shouldShowPopup(storageType));
+
+    if (shouldShowPopup(storageType)) {
+        setTimeout(() => {
+//            consentPopup.classList.remove('hidden');
+        document.getElementById('consent-popup').style.display = "none";
+        }, 200);
+    }
+
+};
+
+//$( "#accept" ).click(function() {
+//  $( "#consent-popup" ).fadeOut( "fast", function() {
+//    // Animation complete.
+//  });
+//});
+//
+//$( "#deny" ).click(function() {
+//  $( "#consent-popup" ).fadeOut( "fast", function() {
+//    // Animation complete.
+//  });
+//});
