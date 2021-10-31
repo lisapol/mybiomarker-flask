@@ -112,10 +112,9 @@ const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
     const consentPopup = document.getElementById('consent-popup');
 
     if (!shouldShowPopup(storageType)) {
-        setTimeout(() => {
 //            consentPopup.classList.remove('hidden');
         document.getElementById('consent-popup').style.display = "none";
-        }, 200);
+
     }
 
 };
