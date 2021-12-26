@@ -87,10 +87,13 @@ def process():
             user = User(email=recipient)
             db.session.add(user)
             db.session.commit()
-            msg = Message('MyBioMarker Subscription', recipients=[recipient])
-            msg.body = ('MyBioMarker Subscription.')
-            msg.html = ('<h1>MyBioMarker Subscription</h1>'
-                        '<p>Thank you for subscription to MyBioMarker newsletter!</p>')
+            msg = Message('Thank you from MyBioMarker❤️', recipients=[recipient])
+            # msg.body = ('MyBioMarker Subscription.')
+            msg.html = ('<h1>Hi 👋,</h1>'
+                        '<p>We are very pleased to see that you are interested in MyBioMarker product. We are aiming to launch in the mid of March. We will notify you when it happens.'
+                        'Sincerely, MyBioMarker Team ❤️</p>')
+
+            # msg.html = render_template('/mybiomarker/e-mail.html')
             try:
                 mail.send(msg)
             except:
