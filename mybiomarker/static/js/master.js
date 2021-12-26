@@ -103,20 +103,18 @@ const cookieStorage = {
 };
 
 window.onload = () => {
-
-const storageType = cookieStorage;
-console.log(cookieStorage)
-const consentPropertyName = 'jdc_consent';
-const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
+//    setTimeout(consentPopup, 10000);
+//    document.getElementById('consent-popup').style.display = "none";
+    const storageType = cookieStorage;
+    console.log(cookieStorage);
+    const consentPropertyName = 'jdc_consent';
+    const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
 
     const consentPopup = document.getElementById('consent-popup');
 
     if (!shouldShowPopup(storageType)) {
-//            consentPopup.classList.remove('hidden');
         document.getElementById('consent-popup').style.display = "none";
-
     }
-
 };
 
 $( "#accept" ).click(function() {
