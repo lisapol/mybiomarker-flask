@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 db_directory = os.path.abspath(os.path.dirname(__file__))
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(db_directory, 'dbusers.sqlite')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qzqpwajwohpjlt:80bdd8da7e090bb6a95046d11c0002c6bd0e75c4bba4a126f59e1f9e91ca1b0a@ec2-52-31-217-108.eu-west-1.compute.amazonaws.com:5432/d1dtiqvlvfgaso'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
