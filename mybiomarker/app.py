@@ -1,40 +1,32 @@
+import os
+import dash
+import base64
+import gspread
+
+from dash import dcc, Dash, html, dash_table
+from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
+
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
+import dash_bootstrap_components as dbc
+
 from flask import Flask, render_template, request, flash, redirect, url_for
+
+from data.transform_dataset import transform_blood_profile, transform_menstrual_data
+
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-import gspread
-import base64
+df = transform_blood_profile()
 
-import plotly.graph_objects as go
+df_menstrual_sorted = transform_menstrual_data()
 
-from oauth2client.service_account import ServiceAccountCredentials
-
-import dash
-import dash_bootstrap_components as dbc
-
-from dash import dcc, Dash
-from dash import html, dash_table
-from dash.dependencies import Input, Output
-import pandas as pd
-import plotly.express as px
-import flask
-import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
-df = pd.read_csv (f'{dir_path}/dash_1/my_data.csv')
-
-
-df = df[
-    ["id","test_dt","test_name_eng","test_results","test_norm_min","test_norm_max","test_unit_eng"]
-]
-
-##Convert number strings to floats
-df = df.apply(pd.to_numeric, errors='ignore')
-df['test_dt'] = pd.to_datetime(df['test_dt']).dt.strftime('%Y-%m-%d')
-# drop duplicates and keep row with max values
-df = df.sort_values('test_results', ascending=False)
-
+image_filename = f'{dir_path}/dash_app/girl.png'
 
 color_dict = {
     'low': 'yellow',
@@ -125,12 +117,13 @@ def plot_test(df, profile, dt='all'):
             )
 
     fig.update_layout(barmode='group',
-                      xaxis_tickangle=0,  # -45
+                      xaxis_tickangle=45,  # -45
                       title=f'{profile} profile',
                       xaxis={'type': 'category', 'categoryorder': 'category ascending'},
                       xaxis_title="dt",
                       yaxis_title="test results",
-                      plot_bgcolor='#f2f2f2'
+                      plot_bgcolor='#f2f2f2',
+                      showlegend=False,
                       )
 
     return fig
@@ -142,98 +135,6 @@ def show_all_dt_for_the_profile(profile: str) -> list:
     df_profile = df[df['test_name_eng'].isin(_find_profile(profile))].test_dt.unique()
     df_profile = np.append(df_profile, 'all')
     return df_profile
-
-
-df_menstrual = pd.DataFrame(columns=[
-    'id',
-    'period_start',
-    'period_end',
-]
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 4,
-     'period_start': '2022-08-09',
-     'period_end': '2022-08-14',
-     },
-    ignore_index=True
-)
-df_menstrual = df_menstrual.append(
-    {'id': 5,
-     'period_start': '2022-10-20',
-     'period_end': '2022-10-25',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 6,
-     'period_start': '2023-01-05',
-     'period_end': '',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 7,
-     'period_start': '2021-01-16',
-     'period_end': '2021-01-20',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 8,
-     'period_start': '2021-02-19',
-     'period_end': '2021-02-24',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 9,
-     'period_start': '2021-03-27',
-     'period_end': '2021-04-01',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 10,
-     'period_start': '2021-05-04',
-     'period_end': '2021-05-09',
-     },
-    ignore_index=True
-)
-
-df_menstrual = df_menstrual.append(
-    {'id': 11,
-     'period_start': '2021-06-07',
-     'period_end': '2021-06-12',
-     },
-    ignore_index=True
-)
-
-
-df_menstrual['period_end'] = pd.to_datetime(df_menstrual['period_end'])
-df_menstrual['period_start'] = pd.to_datetime(df_menstrual['period_start'])
-
-df_menstrual['period_length'] = (df_menstrual['period_end'] - df_menstrual['period_start']) + pd.Timedelta(days=1)
-
-df_menstrual_sorted = df_menstrual.sort_values(by=['period_start', 'period_end'], ascending=True)
-
-df_menstrual_sorted['cycle_end'] = df_menstrual_sorted.period_start.shift(-1) - pd.Timedelta(days=1)
-
-df_menstrual_sorted['cycle_end'] = pd.to_datetime(df_menstrual_sorted['cycle_end'])
-
-df_menstrual_sorted['cycle_length'] = (df_menstrual_sorted['cycle_end'] - df_menstrual_sorted[
-    'period_start']) + pd.Timedelta(days=1)
-
-df_menstrual_sorted['period_length'] = df_menstrual_sorted['period_length'].dt.days
-
-df_menstrual_sorted['cycle_length'] = df_menstrual_sorted['cycle_length'].dt.days
-
-df_menstrual_sorted = df_menstrual_sorted.dropna()
 
 
 fig_menstrual = go.Figure()
@@ -248,9 +149,7 @@ fig_menstrual.add_trace(
         marker=dict(
             color="#eda4c0"
         )
-
     ),
-    #     secondary_y=True
 )
 
 fig_menstrual.add_trace(
@@ -267,7 +166,6 @@ fig_menstrual.add_trace(
             color='rgba(58, 71, 80, 0.6)',
         ),
     ),
-    #     secondary_y=False,
 )
 
 fig_menstrual.update_layout(
@@ -287,22 +185,13 @@ fig_menstrual.update_layout(
 )
 
 fig_menstrual.update_yaxes(
-    #     secondary_y=False,
-    #     side='left',
-    #     tickformat='%Y-%m-%d',
     tickmode='array',
     tickvals=period_start_date_range,
 )
 
-
-
 fig_menstrual.update_layout(
     showlegend=False,
 )
-
-
-image_filename = f'{dir_path}/dash_1/girl.png'
-
 
 def b64_image(image_filename):
     with open(image_filename, 'rb') as f:
@@ -388,8 +277,6 @@ graphs = dbc.Row(
             [
                 LabeledSelect(
                     id="dt-filter",
-                    #             options=[{"label": opt, "value": opt} for opt in keys],
-                    #             value='2023-01-01',
                     value='all',
                     label="choose time to explore:",
                 ),
@@ -424,7 +311,6 @@ menstrual_card_1 = dbc.Card(
             ]
         ),
     ],
-    #     style={"width": "18rem"},
     color="dark",
     inverse=True,
 )
@@ -457,7 +343,6 @@ menstrual_card_4 = dbc.Card(
 
 menstrual_card_2 = dbc.Card(
     [
-        #         dbc.CardHeader("This is the header"),
         dbc.CardBody(
             [
                 html.H4("70 days", className="card-title"),
@@ -465,9 +350,7 @@ menstrual_card_2 = dbc.Card(
                 html.Br(),
             ]
         ),
-        #         dbc.CardFooter("This is the footer"),
     ],
-    #     style={"width": "18rem"},
     color="dark",
     inverse=True,
 )
@@ -476,10 +359,9 @@ dash_app = Dash(__name__,
                 external_stylesheets=[dbc.themes.MINTY],
                 suppress_callback_exceptions=True,
                 server=app,
-                routes_pathname_prefix="/dash_1/",
+                routes_pathname_prefix="/dashboard/",
                 )
 dash_app.layout = dbc.Container(
-    #     dcc.Store(id="store"),
     [
         Header("Welcome back 👋", dash_app),
         html.Hr(),
