@@ -15,7 +15,7 @@ import dash_bootstrap_components as dbc
 
 from flask import Flask, render_template, request, flash, redirect, url_for
 
-from data.transform_dataset import transform_blood_profile, transform_menstrual_data
+from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
 
 
 app = Flask(__name__)
