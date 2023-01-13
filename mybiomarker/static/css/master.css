@@ -84,7 +84,7 @@
 }
 }
 
-@media(max-width: 838px) {
+@media(max-width: 939px) {
   h1 {
     font-size: 29px!important;
   }
@@ -210,7 +210,7 @@
     object-fit: cover!important;
 }
 }
-@media(max-width: 615px) {
+@media(max-width: 600px) {
   h1 {
     font-size: 31px!important;
   }
