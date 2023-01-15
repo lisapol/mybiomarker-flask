@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flask_login import LoginManager, login_required
 
-from mybiomarker.app_1 import serve_dash_app
+from mybiomarker.app import serve_dash_app
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
@@ -59,9 +59,3 @@ def create_app(test_config=None):
 
     protect_dashviews(dash_app)
     return app
-
-if __name__ == "__main__":
-    # app.debug = True
-    app = create_app()
-    app.run()
-    # pass
