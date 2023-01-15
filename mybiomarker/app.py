@@ -15,7 +15,7 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
 from flask_login import current_user
-from flask import Flask
+from flask import Flask, render_template, redirect
 
 from mybiomarker import db
 from mybiomarker.models import User
