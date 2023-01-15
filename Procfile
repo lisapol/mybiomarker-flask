@@ -1,1 +1,1 @@
-web: gunicorn mybiomarker.app:app
+web: gunicorn mybiomarker.app:app --timeout 1200
