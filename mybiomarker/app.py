@@ -15,12 +15,15 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
 from flask_login import current_user
+from flask import Flask
 
 from mybiomarker import db
 from mybiomarker.models import User
 
 from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
 
+app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 df = transform_blood_profile()
 
@@ -514,12 +517,33 @@ from flask_login import UserMixin
 
 
 if __name__ == '__main__':
-    app = Flask(__name__)
-    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
+    db.init_app(app)
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        # since the user_id is just the primary key of our user table, use it in the query for the user.
+        return User.query.get(int(user_id))
+
+    # blueprint for auth routes in our app
+    from mybiomarker.auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint)
+
+    # blueprint for non-auth parts of app
+    from mybiomarker.main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    from mybiomarker import models
+
+    with app.app_context():
+        db.create_all()
 
     dash_app = serve_dash_app(app)
 
