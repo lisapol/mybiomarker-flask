@@ -546,7 +546,7 @@ if __name__ == '__main__':
 
     dash_app = serve_dash_app(app)
 
-    dash_app.run_server()
+    dash_app.run()
 
     protect_dashviews(dash_app)
 
