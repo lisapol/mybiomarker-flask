@@ -2,8 +2,7 @@ from flask_login import login_user, login_required, logout_user
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from mybiomarker.models import User
-from mybiomarker import db
+from mybiomarker.app import db, User
 
 auth = Blueprint('auth', __name__)
 
