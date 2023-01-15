@@ -59,3 +59,9 @@ def create_app(test_config=None):
 
     protect_dashviews(dash_app)
     return app
+
+if __name__ == "__main__":
+    # app.debug = True
+    app = create_app()
+    app.run()
+    # pass
