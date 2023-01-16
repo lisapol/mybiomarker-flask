@@ -359,7 +359,8 @@ dash_app = Dash(__name__,
                 external_stylesheets=[dbc.themes.MINTY],
                 suppress_callback_exceptions=True,
                 server=app,
-                routes_pathname_prefix="/dashboard/",
+                # routes_pathname_prefix="/dashboard/",
+                url_base_pathname="/dashboard/"
                 )
 dash_app.layout = dbc.Container(
     [
@@ -433,10 +434,6 @@ def index():
     return render_template('index.html')
 
 
-# if __name__ == '__main__':
-app.debug = True
-
-# blueprint for auth routes in our app
 from mybiomarker.auth import auth as auth_blueprint
 
 app.register_blueprint(auth_blueprint)
@@ -446,4 +443,9 @@ from mybiomarker.main import main as main_blueprint
 
 app.register_blueprint(main_blueprint)
 
-dash_app.run()
+if __name__ == '__main__':
+    app.debug = True
+
+    # blueprint for auth routes in our app
+
+    dash_app.run()
