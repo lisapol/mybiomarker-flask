@@ -12,7 +12,7 @@ def login():
     return render_template('login.html')
 
 
-@auth.route('/login', methods=['POST'])
+@auth.route('/login', methods=['POST', 'GET'])
 def login_post():
     # login code goes here
     email = request.form.get('email')
@@ -38,7 +38,7 @@ def signup():
     return render_template('signup.html')
 
 
-@auth.route('/signup', methods=['POST'])
+@auth.route('/signup', methods=['POST', 'GET'])
 def signup_post():
     # code to validate and add user to database goes here
     email = request.form.get('email')
