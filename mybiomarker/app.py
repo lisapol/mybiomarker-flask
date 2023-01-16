@@ -16,10 +16,19 @@ import dash_bootstrap_components as dbc
 from flask import Flask, render_template, request, flash, redirect, url_for
 
 from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
+from mybiomarker import db
+from flask_login import LoginManager, login_required
+
 
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+db.init_app(app)
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.init_app(app)
 
 df = transform_blood_profile()
 
@@ -360,7 +369,7 @@ dash_app = Dash(__name__,
                 suppress_callback_exceptions=True,
                 server=app,
                 # routes_pathname_prefix="/dashboard/",
-                url_base_pathname="/dashboard/"
+                url_base_pathname="/hello-dashboard/"
                 )
 dash_app.layout = dbc.Container(
     [
@@ -433,6 +442,13 @@ def update_date_dropdown(name):
 def index():
     return render_template('index.html')
 
+
+from mybiomarker.models import User
+
+@login_manager.user_loader
+def load_user(user_id):
+    # since the user_id is just the primary key of our user table, use it in the query for the user.
+    return User.query.get(int(user_id))
 
 from mybiomarker.auth import auth as auth_blueprint
 

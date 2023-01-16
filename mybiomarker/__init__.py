@@ -9,6 +9,8 @@ from flask_login import LoginManager, login_required
 db = SQLAlchemy()
 
 
+
+
 def protect_dashviews(dashapp):
     """If you want your Dash app to require a login,
     call this function with the Dash app you want to protect"""
