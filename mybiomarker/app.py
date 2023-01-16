@@ -17,14 +17,13 @@ import dash_bootstrap_components as dbc
 from flask_login import current_user
 from flask import Flask, render_template, redirect
 
-from mybiomarker import db
+
 from mybiomarker.models import User
 
 from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
 
 from flask import Blueprint, render_template, redirect
 from flask_login import login_required, current_user
-from mybiomarker.app import db
 
 main = Blueprint('main', __name__)
 
@@ -542,7 +541,7 @@ if __name__ == '__main__':
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-
+    from mybiomarker import db
     db.init_app(app)
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
