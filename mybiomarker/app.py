@@ -2,7 +2,6 @@ import os
 import dash
 import base64
 import gspread
-import numpy as np
 
 from dash import dcc, Dash, html, dash_table
 from dash.dependencies import Input, Output
@@ -14,37 +13,13 @@ import plotly.graph_objects as go
 
 import dash_bootstrap_components as dbc
 
-from flask_login import current_user
-from flask import Flask, render_template, redirect
-
-
-from mybiomarker.models import User
+from flask import Flask, render_template, request, flash, redirect, url_for
 
 from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
-
-from flask import Blueprint, render_template, redirect
-from flask_login import login_required, current_user
-
-main = Blueprint('main', __name__)
-
-
-@main.route('/')
-def index():
-    return render_template('index.html')
-
-
-@main.route('/dashboard')
-@login_required
-def profile():
-    if current_user and current_user.is_authenticated:
-        return redirect('/hello-dashboard')
 
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-@main.route("/")
-def index():
-    return render_template("index.html")
 
 df = transform_blood_profile()
 
@@ -112,6 +87,7 @@ def _find_profile(profile: str) -> list:
         return
 
 
+
 def plot_test(df, profile, dt='all'):
     name = _find_profile(profile)
     if not name:
@@ -151,6 +127,8 @@ def plot_test(df, profile, dt='all'):
                       )
 
     return fig
+
+import numpy as np
 
 
 def show_all_dt_for_the_profile(profile: str) -> list:
@@ -377,195 +355,95 @@ menstrual_card_2 = dbc.Card(
     inverse=True,
 )
 
-def init_dash_app(app):
-    return Dash(__name__,
+dash_app = Dash(__name__,
                 external_stylesheets=[dbc.themes.MINTY],
                 suppress_callback_exceptions=True,
                 server=app,
-                url_base_pathname='/hello-dashboard/',
-                # routes_pathname_prefix="/dashboard/",
+                routes_pathname_prefix="/dashboard/",
                 )
+dash_app.layout = dbc.Container(
+    [
+        Header("Welcome back 👋", dash_app),
+        html.Hr(),
+        dbc.Tabs(
+            [
+                dbc.Tab(label="me", tab_id="scatter"),
+                dbc.Tab(label="mom", tab_id="histogram"),
+            ],
+            id="tabs",
+            active_tab="scatter",
+        ),
+        html.Div(id="tab-content", className="p-4"),
+    ],
+    fluid=False,
+)
 
 
-def init_dash_layout(dash_app):
-    # if current_user and current_user.is_authenticated:
-    dash_app.layout = dbc.Container(
-        [
-            Header("Welcome back 👋", dash_app),
+@dash_app.callback(
+    Output("tab-content", "children"),
+    [Input("tabs", "active_tab")],
+)
+def render_tab_content(active_tab):
+    """
+    This callback takes the 'active_tab' property as input, as well as the
+    stored graphs, and renders the tab content depending on what the value of
+    'active_tab' is.
+    """
+    if active_tab == "scatter":
+        return [
+            dbc.Row([dbc.Col(card) for card in cards]),
+            html.Br(),
+            html.H4('Menstrual cycle flow', style={"margin-top": 5}),
+            html.Label('Everything you need to know about your cycle.'),
+            dbc.Row([dbc.Col(menstrual_card_1), dbc.Col(menstrual_card_3), dbc.Col(menstrual_card_3),
+                     dbc.Col(menstrual_card_2), ]),
+            dbc.Row([dbc.Col(menstrual_card_4)]),
+
             html.Hr(),
-            dbc.Tabs(
-                [
-                    dbc.Tab(label="me", tab_id="scatter"),
-                    dbc.Tab(label="mom", tab_id="histogram"),
-                ],
-                id="tabs",
-                active_tab="scatter",
-            ),
-            html.Div(id="tab-content", className="p-4"),
-        ],
-        fluid=False,
-    )
-    # return html.Div('403 Access Denied')
+            html.H4('Medical analysis overview', style={"margin-top": 5}),
+            html.Hr(),
+            dbc.Row([dbc.Col(graph) for graph in hh]),
+            html.Br(),
+            graphs,
+        ]
+    elif active_tab == "histogram":
+        return None
 
 
-def init_dash_callbacks():
-    @dash_app.callback(
-        Output("tab-content", "children"),
-        [Input("tabs", "active_tab")],
-    )
-    def render_tab_content(active_tab):
-        """
-        This callback takes the 'active_tab' property as input, as well as the
-        stored graphs, and renders the tab content depending on what the value of
-        'active_tab' is.
-        """
-        if active_tab == "scatter":
-            return [
-                dbc.Row([dbc.Col(card) for card in cards]),
-                html.Br(),
-                html.H4('Menstrual cycle flow', style={"margin-top": 5}),
-                html.Label('Everything you need to know about your cycle.'),
-                dbc.Row([dbc.Col(menstrual_card_1), dbc.Col(menstrual_card_3), dbc.Col(menstrual_card_3),
-                         dbc.Col(menstrual_card_2), ]),
-                dbc.Row([dbc.Col(menstrual_card_4)]),
-
-                html.Hr(),
-                html.H4('Medical analysis overview', style={"margin-top": 5}),
-                html.Hr(),
-                dbc.Row([dbc.Col(graph) for graph in hh]),
-                html.Br(),
-                graphs,
-            ]
-        elif active_tab == "histogram":
-            return None
+@dash_app.callback(
+    Output("bar", "figure"),
+    [Input("year-filter", "value"), Input("dt-filter", "value")],
+)
+def update_charts(Year, dt):
+    fig = plot_test(df, profile=Year, dt=dt)
+    return fig
 
 
-    @dash_app.callback(
-        Output("bar", "figure"),
-        [Input("year-filter", "value"), Input("dt-filter", "value")],
-    )
-    def update_charts(Year, dt):
-        fig = plot_test(df, profile=Year, dt=dt)
-        return fig
+@dash_app.callback(
+    dash.dependencies.Output('dt-filter', 'options'),
+    [dash.dependencies.Input('year-filter', 'value')]
+)
+def update_date_dropdown(name):
+    opts = show_all_dt_for_the_profile(name)
+    options = [{'label': opt, 'value': opt} for opt in opts]
+    return options
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
-    @dash_app.callback(
-        dash.dependencies.Output('dt-filter', 'options'),
-        [dash.dependencies.Input('year-filter', 'value')]
-    )
-    def update_date_dropdown(name):
-        opts = show_all_dt_for_the_profile(name)
-        options = [{'label': opt, 'value': opt} for opt in opts]
-        return options
+# if __name__ == '__main__':
+app.debug = True
 
+# blueprint for auth routes in our app
+from mybiomarker.auth import auth as auth_blueprint
 
-def serve_dash_app(app):
-    dash_app = init_dash_app(app)
-    # init_dash_callbacks()
-    @dash_app.callback(
-        Output("tab-content", "children"),
-        [Input("tabs", "active_tab")],
-    )
-    def render_tab_content(active_tab):
-        """
-        This callback takes the 'active_tab' property as input, as well as the
-        stored graphs, and renders the tab content depending on what the value of
-        'active_tab' is.
-        """
-        if active_tab == "scatter":
-            return [
-                dbc.Row([dbc.Col(card) for card in cards]),
-                html.Br(),
-                html.H4('Menstrual cycle flow', style={"margin-top": 5}),
-                html.Label('Everything you need to know about your cycle.'),
-                dbc.Row([dbc.Col(menstrual_card_1), dbc.Col(menstrual_card_3), dbc.Col(menstrual_card_3),
-                         dbc.Col(menstrual_card_2), ]),
-                dbc.Row([dbc.Col(menstrual_card_4)]),
+app.register_blueprint(auth_blueprint)
 
-                html.Hr(),
-                html.H4('Medical analysis overview', style={"margin-top": 5}),
-                html.Hr(),
-                dbc.Row([dbc.Col(graph) for graph in hh]),
-                html.Br(),
-                graphs,
-            ]
-        elif active_tab == "histogram":
-            return None
+# blueprint for non-auth parts of app
+from mybiomarker.main import main as main_blueprint
 
+app.register_blueprint(main_blueprint)
 
-    @dash_app.callback(
-        Output("bar", "figure"),
-        [Input("year-filter", "value"), Input("dt-filter", "value")],
-    )
-    def update_charts(Year, dt):
-        fig = plot_test(df, profile=Year, dt=dt)
-        return fig
-
-
-    @dash_app.callback(
-        dash.dependencies.Output('dt-filter', 'options'),
-        [dash.dependencies.Input('year-filter', 'value')]
-    )
-    def update_date_dropdown(name):
-        opts = show_all_dt_for_the_profile(name)
-        options = [{'label': opt, 'value': opt} for opt in opts]
-        return options
-
-    init_dash_layout(dash_app)
-
-    return dash_app
-
-import os
-from flask import Flask
-
-from flask_login import LoginManager, login_required
-
-
-# init SQLAlchemy so we can use it later in our models
-
-
-def protect_dashviews(dashapp):
-    """If you want your Dash app to require a login,
-    call this function with the Dash app you want to protect"""
-
-    for view_func in dashapp.server.view_functions:
-        if view_func.startswith(dashapp.config.url_base_pathname):
-            dashapp.server.view_functions[view_func] = login_required(
-                dashapp.server.view_functions[view_func]
-            )
-
-from flask_login import UserMixin
-
-
-if __name__ == '__main__':
-
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-    from mybiomarker import db
-    db.init_app(app)
-    login_manager = LoginManager()
-    login_manager.login_view = 'auth.login'
-    login_manager.init_app(app)
-
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        # since the user_id is just the primary key of our user table, use it in the query for the user.
-        return User.query.get(int(user_id))
-
-    # blueprint for auth routes in our app
-    from mybiomarker.auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
-
-    # blueprint for non-auth parts of app
-    from mybiomarker.main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
-
-    from mybiomarker import models
-
-    with app.app_context():
-        db.create_all()
-
-    dash_app = serve_dash_app(app)
-
-    dash_app.run()
+dash_app.run()
