@@ -289,13 +289,13 @@ def load_user(user_id):
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(main_blueprint)
 
+for view_function in dash_app.server.view_functions:
+    if view_function.startswith(dash_app.config.url_base_pathname):
+        dash_app.server.view_functions[view_function] = login_required(
+            dash_app.server.view_functions[view_function])
 
 if __name__ == '__main__':
     app.debug = True
     # blueprint for auth routes in our app
-    for view_function in dash_app.server.view_functions:
-        if view_function.startswith(dash_app.config.url_base_pathname):
-            dash_app.server.view_functions[view_function] = login_required(
-                dash_app.server.view_functions[view_function])
 
     dash_app.run()
