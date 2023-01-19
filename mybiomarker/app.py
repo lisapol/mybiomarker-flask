@@ -126,153 +126,160 @@ def LabeledSelect(label, **kwargs):
 
 popover_children = "I am a popover!"
 
-# Card components
-cards = [
-    dbc.Card(
-        [
-            html.H2(f"❤️ 140/90", className="card-title"),
-            html.P("body pressure", className="card-text"),
-            html.P("last measured at: today", className="card-text"),
-        ],
-        body=True,
-        color="light",
-    ),
-    dbc.Card(
-        [
-            html.H2(f"177 cm", className="card-title"),
-            html.P("height", className="card-text"),
-            html.P("last measured at: today", className="card-text"),
-
-        ],
-        body=True,
-        color="primary",
-        inverse=True,
-    ),
-    dbc.Card(
-        [
-            html.H2("62 kg", className="card-title"),
-            html.P("weight", className="card-text"),
-            html.P("last measured at: today", className="card-text"),
-        ],
-        body=True,
-        color="primary",
-        inverse=True,
-    ),
-]
-
-
-keys = ['lipid', 'thyroid', 'inflammation']
-
-
-graphs = dbc.Row(
-    [
-        dbc.Col(
+def initilise_dash_app(app):
+    # Card components
+    cards = [
+        dbc.Card(
             [
-                LabeledSelect(
-                    id="year-filter",
-                    options=[{"label": Year, "value": Year} for Year in keys],
-                    value='lipid',
-                    label="choose organ to explore:",
-                ),
+                html.H2(f"❤️ 140/90", className="card-title"),
+                html.P("body pressure", className="card-text"),
+                html.P("last measured at: today", className="card-text"),
             ],
-            width=6,
+            body=True,
+            color="light",
         ),
-        dbc.Col(
+        dbc.Card(
             [
-                LabeledSelect(
-                    id="dt-filter",
-                    value='all',
-                    label="choose time to explore:",
-                ),
-            ],
-            width=6,
-        ),
-        dcc.Graph(id="bar"),
-    ],
-)
+                html.H2(f"177 cm", className="card-title"),
+                html.P("height", className="card-text"),
+                html.P("last measured at: today", className="card-text"),
 
-hh = [
-    dbc.Button("explain my results",
-               id="legacy-target",
-               color="primary",
-               n_clicks=0
-               ),
-    dbc.Popover(
-        popover_children,
-        target="legacy-target",
-        body=True,
-        trigger="legacy",
+            ],
+            body=True,
+            color="primary",
+            inverse=True,
+        ),
+        dbc.Card(
+            [
+                html.H2("62 kg", className="card-title"),
+                html.P("weight", className="card-text"),
+                html.P("last measured at: today", className="card-text"),
+            ],
+            body=True,
+            color="primary",
+            inverse=True,
+        ),
+    ]
+
+
+    keys = ['lipid', 'thyroid', 'inflammation']
+
+
+    graphs = dbc.Row(
+        [
+            dbc.Col(
+                [
+                    LabeledSelect(
+                        id="year-filter",
+                        options=[{"label": Year, "value": Year} for Year in keys],
+                        value='lipid',
+                        label="choose organ to explore:",
+                    ),
+                ],
+                width=6,
+            ),
+            dbc.Col(
+                [
+                    LabeledSelect(
+                        id="dt-filter",
+                        value='all',
+                        label="choose time to explore:",
+                    ),
+                ],
+                width=6,
+            ),
+            dcc.Graph(id="bar"),
+        ],
     )
-]
 
+    hh = [
+        dbc.Button("explain my results",
+                   id="legacy-target",
+                   color="primary",
+                   n_clicks=0
+                   ),
+        dbc.Popover(
+            popover_children,
+            target="legacy-target",
+            body=True,
+            trigger="legacy",
+        )
+    ]
 
-dash_app = Dash(__name__,
-                external_stylesheets=[dbc.themes.MINTY],
-                suppress_callback_exceptions=True,
-                server=app,
-                # routes_pathname_prefix="/dashboard/",
-                url_base_pathname="/hello-dashboard/"
-                )
-dash_app.layout = dbc.Container(
-    [
-        Header("Welcome back 👋", dash_app),
-        html.Hr(),
-        dbc.Tabs(
-            [
-                dbc.Tab(label="me", tab_id="scatter"),
-                dbc.Tab(label="mom", tab_id="histogram"),
-            ],
-            id="tabs",
-            active_tab="scatter",
-        ),
-        html.Div(id="tab-content", className="p-4"),
-    ],
-    fluid=False,
-)
-
-
-@dash_app.callback(
-    Output("tab-content", "children"),
-    [Input("tabs", "active_tab")],
-)
-def render_tab_content(active_tab):
-    """
-    This callback takes the 'active_tab' property as input, as well as the
-    stored graphs, and renders the tab content depending on what the value of
-    'active_tab' is.
-    """
-    if active_tab == "scatter":
-        return [
-            dbc.Row([dbc.Col(card) for card in cards]),
-            html.Br(),
+    dash_app = Dash(__name__,
+                    external_stylesheets=[dbc.themes.MINTY],
+                    suppress_callback_exceptions=True,
+                    server=app,
+                    # routes_pathname_prefix="/dashboard/",
+                    url_base_pathname="/hello-dashboard/"
+                    )
+    dash_app.layout = dbc.Container(
+        [
+            Header("Welcome back 👋", dash_app),
             html.Hr(),
-            html.H4('Medical analysis overview', style={"margin-top": 5}),
-            html.Hr(),
-            dbc.Row([dbc.Col(graph) for graph in hh]),
-            html.Br(),
-            graphs,
-        ]
-    elif active_tab == "histogram":
-        return None
+            dbc.Tabs(
+                [
+                    dbc.Tab(label="me", tab_id="scatter"),
+                    dbc.Tab(label="mom", tab_id="histogram"),
+                ],
+                id="tabs",
+                active_tab="scatter",
+            ),
+            html.Div(id="tab-content", className="p-4"),
+        ],
+        fluid=False,
+    )
+    for view_function in dash_app.server.view_functions:
+        if view_function.startswith(dash_app.config.url_base_pathname):
+            dash_app.server.view_functions[view_function] = login_required(
+                dash_app.server.view_functions[view_function])
+    @dash_app.callback(
+        Output("tab-content", "children"),
+        [Input("tabs", "active_tab")],
+    )
+    def render_tab_content(active_tab):
+        """
+        This callback takes the 'active_tab' property as input, as well as the
+        stored graphs, and renders the tab content depending on what the value of
+        'active_tab' is.
+        """
+        if active_tab == "scatter":
+            return [
+                dbc.Row([dbc.Col(card) for card in cards]),
+                html.Br(),
+                html.Hr(),
+                html.H4('Medical analysis overview', style={"margin-top": 5}),
+                html.Hr(),
+                dbc.Row([dbc.Col(graph) for graph in hh]),
+                html.Br(),
+                graphs,
+            ]
+        elif active_tab == "histogram":
+            return None
 
 
-@dash_app.callback(
-    Output("bar", "figure"),
-    [Input("year-filter", "value"), Input("dt-filter", "value")],
-)
-def update_charts(Year, dt):
-    fig = plot_test(df, profile=Year, dt=dt)
-    return fig
+    @dash_app.callback(
+        Output("bar", "figure"),
+        [Input("year-filter", "value"), Input("dt-filter", "value")],
+    )
+    def update_charts(Year, dt):
+        fig = plot_test(df, profile=Year, dt=dt)
+        return fig
 
 
-@dash_app.callback(
-    dash.dependencies.Output('dt-filter', 'options'),
-    [dash.dependencies.Input('year-filter', 'value')]
-)
-def update_date_dropdown(name):
-    opts = show_all_dt_for_the_profile(name)
-    options = [{'label': opt, 'value': opt} for opt in opts]
-    return options
+    @dash_app.callback(
+        dash.dependencies.Output('dt-filter', 'options'),
+        [dash.dependencies.Input('year-filter', 'value')]
+    )
+    def update_date_dropdown(name):
+        opts = show_all_dt_for_the_profile(name)
+        options = [{'label': opt, 'value': opt} for opt in opts]
+        return options
+
+    return dash_app
+
+
+dash_app = initilise_dash_app(app)
 
 @app.route('/')
 def index():
@@ -289,13 +296,8 @@ def load_user(user_id):
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(main_blueprint)
 
-for view_function in dash_app.server.view_functions:
-    if view_function.startswith(dash_app.config.url_base_pathname):
-        dash_app.server.view_functions[view_function] = login_required(
-            dash_app.server.view_functions[view_function])
 
 if __name__ == '__main__':
     app.debug = True
     # blueprint for auth routes in our app
-
-    dash_app.run()
+    app.run()
