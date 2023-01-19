@@ -1,24 +1,30 @@
+# basic import
 import os
 import dash
 import base64
 import gspread
 
+# dash libraries
 from dash import dcc, Dash, html, dash_table
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 
+# visualisations
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
-import dash_bootstrap_components as dbc
-
+# flask
+from flask_login import LoginManager, login_required
 from flask import Flask, render_template, request, flash, redirect, url_for
 
-from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
+# mybiomarker
 from mybiomarker import db
-from flask_login import LoginManager, login_required
-
+from mybiomarker.models import User
+from mybiomarker.auth import auth as auth_blueprint
+from mybiomarker.main import main as main_blueprint
+from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
 
 
 app = Flask(__name__)
@@ -31,8 +37,6 @@ login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
 df = transform_blood_profile()
-
-df_menstrual_sorted = transform_menstrual_data()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 image_filename = f'{dir_path}/dash_app/girl.png'
@@ -61,39 +65,6 @@ def _find_profile(profile: str) -> list:
 
     if profile == 'inflammation':
         return ['C-reactive protein']
-
-    if profile == 'bone':
-        return
-
-    if profile == 'iron':
-        return
-
-    if profile == 'heart':
-        return
-
-    if profile == 'liver':
-        return
-
-    if profile == 'pancreatic':
-        return
-
-    if profile == 'female hormones':
-        return
-
-    if profile == 'eyes':
-        return
-
-    if profile == 'genetics':
-        return
-
-    if profile == 'gut':
-        return
-
-    if profile == 'cycle':
-        return
-
-    if profile == 'vitamins':
-        return
 
 
 
@@ -137,8 +108,6 @@ def plot_test(df, profile, dt='all'):
 
     return fig
 
-import numpy as np
-
 
 def show_all_dt_for_the_profile(profile: str) -> list:
     df_profile = df[df['test_name_eng'].isin(_find_profile(profile))].test_dt.unique()
@@ -146,71 +115,8 @@ def show_all_dt_for_the_profile(profile: str) -> list:
     return df_profile
 
 
-fig_menstrual = go.Figure()
-
-fig_menstrual.add_trace(
-    go.Bar(
-        y=df_menstrual_sorted['period_start'].to_list(),
-        x=df_menstrual_sorted['period_length'].to_list(),
-        name='period_length',
-        hovertemplate='%{x} days',
-        orientation='h',
-        marker=dict(
-            color="#eda4c0"
-        )
-    ),
-)
-
-fig_menstrual.add_trace(
-    go.Bar(
-        y=df_menstrual_sorted['period_start'].to_list(),
-        x=df_menstrual_sorted['cycle_length'].to_list(),
-        text=df_menstrual_sorted['cycle_length'],
-        texttemplate="%{text} days",
-        textposition='outside',
-        name='cycle_length',
-        orientation='h',
-        hovertemplate='%{x} days',
-        marker=dict(
-            color='rgba(58, 71, 80, 0.6)',
-        ),
-    ),
-)
-
-fig_menstrual.update_layout(
-    barmode='stack',
-    plot_bgcolor='#f2f2f2',
-    title='menstrual period and cycle length over the entire period'
-)
-
-period_start_date_range = df_menstrual_sorted['period_start'].to_list()
-cycle_end_date_range = df_menstrual_sorted['cycle_end'].to_list()
-
-fig_menstrual.update_layout(
-    xaxis=dict(
-        tick0=0,
-        dtick=5, range=[0, 90]
-    ),
-)
-
-fig_menstrual.update_yaxes(
-    tickmode='array',
-    tickvals=period_start_date_range,
-)
-
-fig_menstrual.update_layout(
-    showlegend=False,
-)
-
-def b64_image(image_filename):
-    with open(image_filename, 'rb') as f:
-        image = f.read()
-    return 'data:image/png;base64,' + base64.b64encode(image).decode('utf-8')
-
-
 def Header(name, app):
     title = html.H2(name, style={"margin-top": 5})
-
     return dbc.Row([dbc.Col(title, md=9)])
 
 
@@ -230,17 +136,6 @@ cards = [
         ],
         body=True,
         color="light",
-    ),
-    dbc.Card(
-        [
-            html.H2(f"🩸 1 day", className="card-title"),
-            html.P("before menstruation starts", className="card-text"),
-            html.P("last measured at: today", className="card-text"),
-
-        ],
-        body=True,
-        color="dark",
-        inverse=True,
     ),
     dbc.Card(
         [
@@ -310,59 +205,6 @@ hh = [
     )
 ]
 
-menstrual_card_1 = dbc.Card(
-    [
-        dbc.CardBody(
-            [
-                html.H4("7 days", className="card-title"),
-                html.P("Average period length", className="card-text"),
-                html.Br(),
-            ]
-        ),
-    ],
-    color="dark",
-    inverse=True,
-)
-
-menstrual_card_3 = dbc.Card(
-    [
-        html.Img(
-            src=b64_image(image_filename),
-            style={
-                'height': '50%',
-                'width': '50%'
-            }
-        ),
-    ],
-    style={'textAlign': 'center'},
-    body=True,
-    color="light",
-)
-
-menstrual_card_4 = dbc.Card(
-    [
-        dcc.Graph(
-            id='graph1',
-            figure=fig_menstrual,
-        ),
-    ],
-    body=True,
-    color="light",
-)
-
-menstrual_card_2 = dbc.Card(
-    [
-        dbc.CardBody(
-            [
-                html.H4("70 days", className="card-title"),
-                html.P("Average cycle length", className="card-text"),
-                html.Br(),
-            ]
-        ),
-    ],
-    color="dark",
-    inverse=True,
-)
 
 dash_app = Dash(__name__,
                 external_stylesheets=[dbc.themes.MINTY],
@@ -403,12 +245,6 @@ def render_tab_content(active_tab):
         return [
             dbc.Row([dbc.Col(card) for card in cards]),
             html.Br(),
-            html.H4('Menstrual cycle flow', style={"margin-top": 5}),
-            html.Label('Everything you need to know about your cycle.'),
-            dbc.Row([dbc.Col(menstrual_card_1), dbc.Col(menstrual_card_3), dbc.Col(menstrual_card_3),
-                     dbc.Col(menstrual_card_2), ]),
-            dbc.Row([dbc.Col(menstrual_card_4)]),
-
             html.Hr(),
             html.H4('Medical analysis overview', style={"margin-top": 5}),
             html.Hr(),
@@ -443,25 +279,23 @@ def index():
     return render_template('index.html')
 
 
-from mybiomarker.models import User
-
 @login_manager.user_loader
 def load_user(user_id):
     # since the user_id is just the primary key of our user table, use it in the query for the user.
     return User.query.get(int(user_id))
 
-from mybiomarker.auth import auth as auth_blueprint
 
+# registering blueprints
 app.register_blueprint(auth_blueprint)
-
-# blueprint for non-auth parts of app
-from mybiomarker.main import main as main_blueprint
-
 app.register_blueprint(main_blueprint)
+
 
 if __name__ == '__main__':
     app.debug = True
-
     # blueprint for auth routes in our app
+    for view_function in dash_app.server.view_functions:
+        if view_function.startswith(dash_app.config.url_base_pathname):
+            dash_app.server.view_functions[view_function] = login_required(
+                dash_app.server.view_functions[view_function])
 
     dash_app.run()
