@@ -10,6 +10,11 @@ def index():
     return render_template('index.html')
 
 
+@main.route('/dirty_bird')
+def dirty_bird():
+    return render_template('main-02.html')
+
+
 @main.route('/dashboard')
 @login_required
 def profile():

@@ -1,0 +1,574 @@
+/* screen - brand-collaboration-1-all-breakpoints */
+
+.brand-collaboration-1-all-breakpoints {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  gap: 60px;
+  width: 1440px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame-43159 {
+  background-color: var(--provincial-pink);
+  flex-direction: column;
+  height: 840px;
+  padding: 30px 0;
+  width: 324px;
+}
+
+.brand-collaboration-1-all-breakpoints .ellipse-1-1 {
+  height: 60px;
+  width: 60px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-13 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 56px;
+  width: 78px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame-43161 {
+  background-color: var(--white);
+  border-radius: 8px;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 90px;
+  padding: 20px 10px;
+  width: 264px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame-43160 {
+  background-color: var(--blossom);
+  border-radius: 8px;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px 10px;
+  width: 264px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame-43162 {
+  background-color: var(--white);
+  border-radius: 8px;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px 10px;
+  width: 264px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame-43163 {
+  background-color: var(--white);
+  border-radius: 8px;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 348px;
+  padding: 20px 10px;
+  width: 264px;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-col-1 {
+  margin-top: 59px;
+  min-height: 751px;
+  width: 998px;
+}
+
+.brand-collaboration-1-all-breakpoints .title {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 36px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-container-1 {
+  gap: 18px;
+  margin-top: 21px;
+  min-width: 402px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-1 {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+  height: 185px;
+  min-width: 192px;
+}
+
+.brand-collaboration-1-all-breakpoints .overlap-group-2 {
+  flex-direction: column;
+  gap: 47px;
+  min-height: 185px;
+  width: 190px;
+}
+
+.brand-collaboration-1-all-breakpoints .rectangle-1 {
+  align-self: center;
+  height: 65px;
+  margin-right: 2.0px;
+  width: 70px;
+}
+
+.brand-collaboration-1-all-breakpoints .upload {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 150px;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-col-2 {
+  background-color: var(--gumbo);
+  border-radius: 20px;
+  gap: 17px;
+  margin-top: 35px;
+  min-height: 227px;
+  padding: 20px 0;
+  width: 996px;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-row-1 {
+  gap: 749px;
+}
+
+.brand-collaboration-1-all-breakpoints .blood-test-1 {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 36px;
+  min-width: 123px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-1000003734 {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  margin-top: 0;
+  min-width: 84px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-container-2 {
+  gap: 19px;
+  height: 134px;
+  margin-left: 20px;
+  min-width: 259px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-2 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 134px;
+  padding: 10px 9px;
+  width: 120px;
+}
+
+.brand-collaboration-1-all-breakpoints .overlap-group-3 {
+  align-self: flex-end;
+  height: 90px;
+  margin-right: 6px;
+  min-width: 90px;
+}
+
+.brand-collaboration-1-all-breakpoints .mask-group-1 {
+  height: 50px;
+  width: 50px;
+}
+
+.brand-collaboration-1-all-breakpoints .address-2 {
+  letter-spacing: -0.14px;
+  line-height: 14px;
+  text-align: center;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.brand-collaboration-1-all-breakpoints .x01-blood-test {
+  letter-spacing: -0.14px;
+  line-height: 14px;
+  text-align: center;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.brand-collaboration-1-all-breakpoints .overlap-group3-1 {
+  align-items: flex-start;
+  background-color: var(--gumbo);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 20px;
+  min-height: 227px;
+  padding: 20px 0;
+  width: 996px;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-row-2 {
+  gap: 729px;
+}
+
+.brand-collaboration-1-all-breakpoints .ultra-sound {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 36px;
+  min-width: 143px;
+}
+
+.brand-collaboration-1-all-breakpoints .group-4 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 20px;
+  min-height: 134px;
+  padding: 10px 9px;
+  width: 120px;
+}
+
+.brand-collaboration-1-all-breakpoints .x01-blood-test-1 {
+  letter-spacing: -0.14px;
+  line-height: 14px;
+  text-align: center;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-collaboration-1-all-breakpoints .flex-row {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  height: 36px;
+  min-width: 956px;
+}
+
+.brand-collaboration-1-all-breakpoints .frame {
+  align-items: center;
+  display: flex;
+}
+
+.brand-collaboration-1-all-breakpoints .group-container {
+  align-items: flex-start;
+  display: flex;
+}
+
+.brand-collaboration-1-all-breakpoints .overlap-group {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  padding: 19px;
+}
+/* screen - iphone-13-mini-1 */
+
+.iphone-13-mini-1 {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  flex-direction: column;
+  height: 1033px;
+  width: 375px;
+}
+
+.iphone-13-mini-1 .overlap-group5 {
+  align-items: center;
+  background-color: var(--provincial-pink);
+  display: flex;
+  gap: 262px;
+  height: 75px;
+  justify-content: flex-end;
+  min-width: 375px;
+  padding: 10px 24px;
+}
+
+.iphone-13-mini-1 .menu {
+  height: 24px;
+  margin-top: 15.0px;
+  width: 24px;
+}
+
+.iphone-13-mini-1 .ellipse-1 {
+  align-self: flex-end;
+  height: 40px;
+  width: 40px;
+}
+
+.iphone-13-mini-1 .upload-your-documents {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 1.0px;
+  margin-top: 29px;
+  width: 326px;
+}
+
+.iphone-13-mini-1 .overlap-group-container {
+  gap: 14px;
+  height: 163px;
+  margin-left: 3.0px;
+  margin-top: 21px;
+  min-width: 328px;
+}
+
+.iphone-13-mini-1 .overlap-group {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 163px;
+  padding: 19px 9px;
+  width: 156px;
+}
+
+.iphone-13-mini-1 .upload-a-blood-test {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 136px;
+}
+
+.iphone-13-mini-1 .group-1000003743 {
+  align-items: flex-start;
+  display: flex;
+  height: 224px;
+  margin-right: 11.0px;
+  margin-top: 24px;
+  min-width: 328px;
+}
+
+.iphone-13-mini-1 .overlap-group3 {
+  align-items: center;
+  background-color: var(--gumbo);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 224px;
+  padding: 20px 0;
+  width: 326px;
+}
+
+.iphone-13-mini-1 .blood-test {
+  align-self: flex-start;
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 20px;
+  min-height: 30px;
+}
+
+.iphone-13-mini-1 .group-container {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  height: 118px;
+  margin-top: 10px;
+  min-width: 286px;
+}
+
+.iphone-13-mini-1 .group {
+  align-items: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 118px;
+  padding: 6px 5px;
+  width: 86px;
+}
+
+.iphone-13-mini-1 .overlap-group-1 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  height: 74px;
+  margin-right: 1px;
+  min-width: 74px;
+  padding: 16px;
+}
+
+.iphone-13-mini-1 .mask-group {
+  height: 40px;
+  width: 40px;
+}
+
+.iphone-13-mini-1 .address {
+  letter-spacing: 0;
+  line-height: 13.2px;
+  margin-right: 2px;
+  text-align: center;
+  width: 74px;
+}
+
+.iphone-13-mini-1 .frame-43431 {
+  align-items: flex-start;
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  width: fit-content;
+}
+
+.iphone-13-mini-1 .ellipse {
+  background-color: var(--white-2);
+  border-radius: 3px;
+  height: 6px;
+  min-width: 6px;
+}
+
+.iphone-13-mini-1 .ellipse-3 {
+  background-color: var(--black);
+  border-radius: 3px;
+  height: 6px;
+  min-width: 6px;
+}
+
+.iphone-13-mini-1 .group-1000003744 {
+  align-items: flex-start;
+  display: flex;
+  height: 224px;
+  margin-left: 3.0px;
+  margin-top: 44px;
+  min-width: 328px;
+}
+
+.iphone-13-mini-1 .overlap-group4 {
+  align-items: center;
+  background-color: var(--gumbo);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 224px;
+  padding: 20px 0;
+  width: 326px;
+}
+
+.iphone-13-mini-1 .flex-row {
+  align-items: flex-end;
+  display: flex;
+  height: 158px;
+  min-width: 286px;
+}
+
+.iphone-13-mini-1 .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 158px;
+  width: 95px;
+}
+
+.iphone-13-mini-1 .ultra-text {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 30px;
+}
+
+.iphone-13-mini-1 .group-1000003741 {
+  align-items: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 5px;
+  min-height: 118px;
+  padding: 6px 5px;
+  width: 86px;
+}
+
+.iphone-13-mini-1 .group-1000003742 {
+  align-items: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 14px;
+  min-height: 118px;
+  padding: 6px 5px;
+  width: 86px;
+}
+
+.iphone-13-mini-1 .frame-43431-1 {
+  align-items: flex-start;
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+}
+
+.iphone-13-mini-1 .overlap-group-2 {
+  align-items: flex-start;
+  display: flex;
+}
+@media screen and (max-width: 1439px) {
+  .screen.brand-collaboration-1-all-breakpoints { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1440px) {
+  .screen.iphone-13-mini-1 { 
+    display: none;
+   }
+}
