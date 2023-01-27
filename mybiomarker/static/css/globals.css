@@ -69,12 +69,7 @@
   min-height: 24px;
 }
 
-.vector-1 {
-  height: 1px;
-  margin-top: 10px;
-  object-fit: cover;
-  width: 264px;
-}
+
 
 .dashboard {
   letter-spacing: 0;

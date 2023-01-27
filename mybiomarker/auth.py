@@ -32,7 +32,7 @@ def login_post():
     login_user(user, remember=remember)
 
     # return redirect(url_for('main.profile'))
-    return redirect('/hello-dashboard')
+    return redirect('/profile')
 
 
 @auth.route('/signup')

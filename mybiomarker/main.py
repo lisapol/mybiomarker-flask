@@ -10,14 +10,16 @@ def index():
     return render_template('index.html')
 
 
-@main.route('/dirty_bird')
+@main.route('/profile')
+@login_required
 def dirty_bird():
-    return render_template('main-02.html')
+    if current_user and current_user.is_authenticated:
+        return render_template('test.html')
 
 
 @main.route('/dashboard')
 @login_required
-def profile():
+def jj():
     if current_user and current_user.is_authenticated:
         return redirect('/hello-dashboard')
 

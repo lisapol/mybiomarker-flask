@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/globals.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/master.css" />
+    <script src='../static/js/articles.js' defer></script>
 
   </head>
   <body style="margin: 0; background: #ffffff">
@@ -115,10 +116,28 @@
             </div>
           </div>
           <img class="vector-1" src="../static/img/main/vector-1.svg" alt="Vector 1" />
-          <div class="frame-43161 frame"><div class="dashboard poppins-normal-gravel-18px">Dashboard</div></div>
-          <div class="frame-43160 frame"><div class="upload-1">Upload</div></div>
+          <button class="frame-43161 frame"><div class="dashboard poppins-normal-gravel-18px">Dashboard</div>
+          </button>
+          <div class="frame-43160 frame">
+            <div class="upload-1">Upload</div>
+          </div>
 <!--          <div class="frame-43162 frame"><div class="settings poppins-normal-gravel-18px">Settings</div></div>-->
 <!--          <div class="frame-43163 frame"><div class="add-a-user poppins-normal-gravel-18px">+ Add a user</div></div>-->
+
+          <div class="mobile-menu">
+    <div class="mobile-menu-content">
+        <div class="mibile-content-item">
+             <a href="{{ url_for('auth.login') }}" class="navbar-item">Log In</a>
+            <img class='close' src="../static/img/icons/close.svg" alt="">
+        </div>
+        <nav>
+            <a href="#about">About</a>
+<!--            <a href="#work">MyBioApp</a>-->
+             <a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up </a>
+        </nav>
+    </div>
+</div>
+
         </div>
         <div class="flex-col-1 flex-col">
           <h1 class="title">Upload Your Documents 💉</h1>

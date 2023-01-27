@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="../static/img/favicon-32x32.png" sizes="32x32"/>
+    <link rel="stylesheet" href="../static/css/test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='../static/js/test.js' defer></script>
+    <title>MyBioMarker</title>
+    <meta name="google-site-verification" content="3Jnh_S0jF1X4B6rsGfrOaZu78m8ojphB4TKzrEsUoeM"/>
+</head>
+
+<body>
+<header>
+    <div class="container justify-between">
+        <img class='logo' src="../static/img/key-features-img-2.svg" alt="" width="20%" height="100%">
+        <nav>
+            <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
+            <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
+            <img class='mobile-btn' src="../static/img/icons/mobile-btn.svg" alt="">
+        </nav>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <div class="mobile-menu-content">
+        <div class="mobile-content-item">
+             <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
+            <img class='close' src="../static/img/icons/close.svg" alt="">
+        </div>
+        <nav>
+             <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
+        </nav>
+    </div>
+</div>
+<main>
+
+<section>
+    <div class="container">
+        <div>
+            <br />
+            <br />
+            <br />
+            <h1>Upload Your Documents 💉</h1>
+            <br/>
+            <p class='content-item'>
+                We give you in-depth insights of your health based on the results
+                of your pre-made medical tests.</p>
+            <div>
+                <img class="rectangle" src="../static/img/main/rectangle.gif" alt="Rectangle" />
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+</body>
+</html>
