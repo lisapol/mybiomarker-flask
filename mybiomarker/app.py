@@ -129,15 +129,15 @@ popover_children = "I am a popover!"
 def initilise_dash_app(app):
     # Card components
     cards = [
-        dbc.Card(
-            [
-                html.H2(f"❤️ 140/90", className="card-title"),
-                html.P("body pressure", className="card-text"),
-                html.P("last measured at: today", className="card-text"),
-            ],
-            body=True,
-            color="light",
-        ),
+        # dbc.Card(
+        #     [
+        #         # html.H2(f"❤️ 140/90", className="card-title"),
+        #         html.P("body pressure", className="card-text"),
+        #         html.P("last measured at: today", className="card-text"),
+        #     ],
+        #     body=True,
+        #     color="light",
+        # ),
         dbc.Card(
             [
                 html.H2(f"177 cm", className="card-title"),
@@ -220,7 +220,7 @@ def initilise_dash_app(app):
             dbc.Tabs(
                 [
                     dbc.Tab(label="me", tab_id="scatter"),
-                    dbc.Tab(label="mom", tab_id="histogram"),
+                    # dbc.Tab(label="mom", tab_id="histogram"),
                 ],
                 id="tabs",
                 active_tab="scatter",
@@ -245,8 +245,8 @@ def initilise_dash_app(app):
         """
         if active_tab == "scatter":
             return [
-                dbc.Row([dbc.Col(card) for card in cards]),
-                html.Br(),
+                # dbc.Row([dbc.Col(card) for card in cards]),
+                # html.Br(),
                 html.Hr(),
                 html.H4('Medical analysis overview', style={"margin-top": 5}),
                 html.Hr(),
