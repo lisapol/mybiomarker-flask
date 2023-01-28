@@ -363,8 +363,47 @@ h2 {
 }
 
 .rectangle {
-  align-self: center;
-  height: 65px;
+  display:block;
+  margin:0px 0px 0px 40px;
+  height: 75px;
   margin-right: 2.0px;
+  width: 80px;
+}
+
+.overlap-group2 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  left: 804px;
+  min-height: 185px;
+  padding: 19px;
+  position: absolute;
+  top: 116px;
   width: 70px;
+  text-align: bottom;
+}
+
+.overlap-group {
+  align-self: top;
+  background-color: var(--white);
+  border-color: var(--concrete);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  height: 150px;
+  margin-right: 6px;
+  min-width: 90px;
+  padding: 19px;
+  width: 190px;
+}
+
+.upload {
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+
 }

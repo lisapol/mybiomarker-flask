@@ -11,4 +11,8 @@ mobile_btn.onclick = function() {
   };
 };
 
+document.getElementById('buttonid').addEventListener('click', openDialog);
 
+function openDialog() {
+  document.getElementById('fileid').click();
+}
