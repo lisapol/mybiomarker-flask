@@ -17,6 +17,13 @@ def dirty_bird():
         return render_template('test.html')
 
 
+@main.route('/results')
+@login_required
+def profile_2():
+    if current_user and current_user.is_authenticated:
+        return render_template('test-2.html')
+
+
 @main.route('/dashboard')
 @login_required
 def jj():

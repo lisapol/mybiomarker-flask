@@ -19,6 +19,7 @@
         <img class='logo' src="../static/img/key-features-img-2.svg" alt="" width="20%" height="100%">
         <nav>
             <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
+            <a href="{{ url_for('main.profile_2') }}" class="navbar-item">Results</a>
             <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
             <img class='mobile-btn' src="../static/img/icons/mobile-btn.svg" alt="">
         </nav>
@@ -32,6 +33,7 @@
             <img class='close' src="../static/img/icons/close.svg" alt="">
         </div>
         <nav>
+             <a href="{{ url_for('main.profile_2') }}" class="navbar-item">Results</a>
              <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
         </nav>
     </div>

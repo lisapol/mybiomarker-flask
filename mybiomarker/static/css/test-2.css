@@ -1,0 +1,360 @@
+/* screen - full-project */
+
+.full-project {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  height: 840px;
+  width: 1440px;
+}
+
+.full-project .group-1000003737 {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #0000000a;
+  display: flex;
+  flex-direction: column;
+  min-height: 840px;
+  padding: 0 3px;
+  width: 1440px;
+}
+
+.full-project .overlap-group-1 {
+  align-self: flex-start;
+  height: 151px;
+  position: relative;
+  width: 1411px;
+}
+
+.full-project .rectangle-4174 {
+  background-color: white;
+  border-radius: 10px;
+  height: 151px;
+  left: 23px;
+  position: absolute;
+  top: 0;
+  width: 1388px;
+}
+
+.full-project .title {
+  color: black;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  left: 76px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 26px;
+  width: 331px;
+}
+
+.full-project .edit-if-not-1 {
+  color: black;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 83px;
+  width: 243px;
+}
+
+.full-project .frame-43429-2 {
+  align-items: flex-start;
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  width: 1388px;
+}
+
+.full-project .frame-4342-1 {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--ebb);
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  padding: 16px;
+}
+
+.full-project .frame-43163-1 {
+  align-items: center;
+  align-self: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--blossom);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  margin-right: 24.18px;
+  margin-top: 22px;
+  padding: 12px 24px;
+  width: 267px;
+}
+
+.full-project .frame-43429-3 {
+  align-items: flex-start;
+  display: flex;
+  gap: 8px;
+  margin-left: 15.71px;
+  margin-top: 32px;
+  width: 1388px;
+}
+
+.full-project .frame-43432 {
+  align-items: center;
+  align-self: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--blossom);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  margin-right: 23.95px;
+  margin-top: 29px;
+  padding: 12px 24px;
+  width: 267px;
+}
+
+.full-project .frame-43430-1 {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  height: 69px;
+  margin-right: 3.57px;
+  margin-top: 276px;
+  width: 1388px;
+}
+
+.full-project .frame-43160-1 {
+  align-items: center;
+  background-color: #ff597b;
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+.full-project .cancel-1 {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-top: -1.00px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.full-project .frame-43429-4 {
+  align-items: center;
+  background-color: #65c18c;
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+.full-project .submit-1 {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-top: -1.00px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.full-project .add {
+  color: var(--gravel);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+  width: fit-content;
+}
+/* screen - iphone-13-mini-5 */
+
+.iphone-13-mini-5 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  height: 812px;
+  width: 375px;
+}
+
+.iphone-13-mini-5 .overlap-group {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: #f2f2f2;
+  box-shadow: 10px 10px 10px #0000000a;
+  min-height: 812px;
+  padding: 13.1px 10.5px;
+  width: 375px;
+}
+
+.iphone-13-mini-5 .overlap-group1 {
+  align-self: center;
+  background-color: white;
+  gap: 13px;
+  margin-right: 0;
+  min-height: 106px;
+  padding: 13.1px 11.5px;
+  width: 352px;
+}
+
+.iphone-13-mini-5 .all-your-result-are-correct {
+  color: black;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 35px;
+  width: 281px;
+}
+
+.iphone-13-mini-5 .edit-if-not {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 31px;
+  text-align: center;
+  width: 85px;
+}
+
+.iphone-13-mini-5 .frame-43429 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 197px;
+  margin-top: 25px;
+  width: 352px;
+}
+
+.iphone-13-mini-5 .frame-4342 {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--ebb);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+.iphone-13-mini-5 .frame-43163 {
+  align-items: center;
+  align-self: flex-end;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--blossom);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  margin-right: 2.97px;
+  padding: 12px 24px;
+  width: 104px;
+}
+
+.iphone-13-mini-5 .add {
+  color: var(--gravel);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 14px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.iphone-13-mini-5 .frame-43430 {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  height: 73px;
+  margin-top: 333px;
+  width: 352px;
+}
+
+.iphone-13-mini-5 .frame-43160 {
+  align-items: center;
+  background-color: #ff597b;
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+.iphone-13-mini-5 .cancel {
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-top: -1.00px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.iphone-13-mini-5 .frame-43429-1 {
+  align-items: center;
+  background-color: #65c18c;
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+.iphone-13-mini-5 .submit {
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-top: -1.00px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.iphone-13-mini-5 .overlap {
+  align-items: flex-start;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1439px) {
+  .screen.full-project { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1440px) {
+  .screen.iphone-13-mini-5 { 
+    display: none;
+   }
+}
