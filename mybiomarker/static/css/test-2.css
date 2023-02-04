@@ -45,7 +45,7 @@
   font-family: var(--font-family-poppins);
   font-size: var(--font-size-xl);
   font-weight: 700;
-  left: 76px;
+  left: 3%;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -58,7 +58,7 @@
   font-family: var(--font-family-poppins);
   font-size: var(--font-size-l);
   font-weight: 500;
-  left: 0;
+  left: -3%;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -136,7 +136,7 @@
   gap: 20px;
   height: 69px;
   margin-right: 3.57px;
-  margin-top: 276px;
+  margin-top: 30px;
   width: 1388px;
 }
 
@@ -149,6 +149,7 @@
   gap: 10px;
   justify-content: center;
   padding: 20px 10px;
+  border: 0;
 }
 
 .full-project .cancel-1 {
@@ -158,9 +159,9 @@
   font-weight: 500;
   letter-spacing: 0;
   line-height: 18px;
-  margin-top: -1.00px;
   white-space: nowrap;
   width: fit-content;
+  border: 0;
 }
 
 .full-project .frame-43429-4 {
@@ -172,6 +173,7 @@
   gap: 10px;
   justify-content: center;
   padding: 20px 10px;
+  border: 0;
 }
 
 .full-project .submit-1 {
@@ -236,6 +238,7 @@
   line-height: normal;
   min-height: 35px;
   width: 281px;
+
 }
 
 .iphone-13-mini-5 .edit-if-not {
@@ -300,7 +303,7 @@
   display: flex;
   gap: 10px;
   height: 73px;
-  margin-top: 333px;
+  margin-top: 30px;
   width: 352px;
 }
 
@@ -313,14 +316,15 @@
   gap: 10px;
   justify-content: center;
   padding: 20px 10px;
+  border: 0;
 }
 
 .iphone-13-mini-5 .cancel {
   letter-spacing: 0;
   line-height: 16px;
-  margin-top: -1.00px;
   white-space: nowrap;
   width: fit-content;
+  border: 0;
 }
 
 .iphone-13-mini-5 .frame-43429-1 {
@@ -332,6 +336,7 @@
   gap: 10px;
   justify-content: center;
   padding: 20px 10px;
+  border: 0;
 }
 
 .iphone-13-mini-5 .submit {
