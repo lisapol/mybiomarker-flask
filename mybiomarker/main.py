@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect
+from flask import Blueprint, render_template, redirect, request
 from flask_login import login_required, current_user
 from mybiomarker import db
 
@@ -17,9 +17,18 @@ def dirty_bird():
         return render_template('test.html')
 
 
-@main.route('/results')
+@main.route('/results',  methods=["POST", "GET"])
 @login_required
 def profile_2():
+    if request.method == 'POST':
+        my_value = request.form['my_value']
+        my_unit = request.form['my_unit']
+        my_test = request.form['my_test']
+        # print("my med values")
+        # print(my_value)
+        # print(my_unit)
+        # print(my_test)
+
     if current_user and current_user.is_authenticated:
         return render_template('test-2.html')
 
@@ -29,4 +38,3 @@ def profile_2():
 def jj():
     if current_user and current_user.is_authenticated:
         return redirect('/hello-dashboard')
-
