@@ -29,7 +29,7 @@ def profile_2():
         user = MyData.query.filter_by(my_value=my_value).first()
 
         if not user:
-            new_record = MyData(my_value=my_value, my_unit=my_unit, my_test=my_test)
+            new_record = MyData(my_value=my_value, my_unit=str(my_unit), my_test=my_test)
 
             # add the new user to the database
             db.session.add(new_record)
