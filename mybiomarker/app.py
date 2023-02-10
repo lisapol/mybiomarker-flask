@@ -297,6 +297,8 @@ def load_user(user_id):
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(main_blueprint)
 
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     app.debug = True

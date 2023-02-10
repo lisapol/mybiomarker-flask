@@ -15,3 +15,5 @@ class MyData(db.Model):
     my_value = db.Column(db.String(100), unique=True)
     my_unit = db.Column(db.Integer)
     my_test = db.Column(db.String(1000))
+
+
