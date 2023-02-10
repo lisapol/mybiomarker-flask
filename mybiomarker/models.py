@@ -12,8 +12,8 @@ class User(UserMixin, db.Model):
 
 class MyData(db.Model):
     id = db.Column(db.Integer, primary_key=True)   # primary keys are required by SQLAlchemy
-    my_value = db.Column(db.String(100), unique=True)
-    my_unit = db.Column(db.Integer)
+    my_value = db.Column(db.Integer)
+    my_unit = db.Column(db.String(100))
     my_test = db.Column(db.String(1000))
 
 
