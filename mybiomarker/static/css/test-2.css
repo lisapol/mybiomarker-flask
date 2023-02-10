@@ -212,9 +212,7 @@
 
 .iphone-13-mini-5 .overlap-group {
   background-color: var(--white);
-  border: 1px solid;
   border-color: #f2f2f2;
-  box-shadow: 10px 10px 10px #0000000a;
   min-height: 812px;
   padding: 13.1px 10.5px;
   width: 375px;

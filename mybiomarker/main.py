@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, flash, url_for
 from flask_login import login_required, current_user
 from mybiomarker import db
+from mybiomarker.models import MyData
 
 main = Blueprint('main', __name__)
 
@@ -24,10 +25,18 @@ def profile_2():
         my_value = request.form['my_value']
         my_unit = request.form['my_unit']
         my_test = request.form['my_test']
-        # print("my med values")
-        # print(my_value)
-        # print(my_unit)
-        # print(my_test)
+
+        user = MyData.query.filter_by(my_value=my_value).first()
+
+        if not user:
+            new_record = MyData(my_value=my_value, my_unit=my_unit, my_test=my_test)
+
+            # add the new user to the database
+            db.session.add(new_record)
+            db.session.commit()
+        if user:
+            print("uesss")
+            flash('this record already exists')
 
     if current_user and current_user.is_authenticated:
         return render_template('test-2.html')

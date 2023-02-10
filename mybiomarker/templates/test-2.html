@@ -14,6 +14,8 @@
     <link rel="icon" type="image/png" href="../static/img/favicon-32x32.png" sizes="32x32"/>
     <link rel="stylesheet" href="../static/css/master.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
   </head>
   <body style="margin: 0; background: #ffffff">
 <a id="top"></a>
@@ -24,6 +26,7 @@
             <img class='close' src="../static/img/icons/close.svg" alt="">
         </div>
         <nav>
+            <a href="{{ url_for('main.dirty_bird') }}" class="navbar-item">Upload</a>
             <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
         </nav>
     </div>
@@ -36,6 +39,7 @@
 
         <nav>
             <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
+            <a href="{{ url_for('main.dirty_bird') }}" class="navbar-item">Upload</a>
             <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
             <img class='mobile-btn' src="../static/img/icons/mobile-btn.svg" alt="">
         </nav>
@@ -43,17 +47,17 @@
 </header>
 <main>
 
-    <input type="hidden" id="anPageName" name="page" value="full-project" />
+<!--    <input type="hidden" id="anPageName" name="page" value="full-project" />-->
     <div class="container-center-horizontal">
       <div class="iphone-13-mini-5 screen">
         <div class="overlap-group overlap">
           <div class="overlap-group1 overlap">
           </div>
-
           <form method="POST" action="{{ url_for('main.profile_2') }}">
           <div class="frame-43429">
               <br>
               <h3>💉  Enter your medical data: </h3>
+
             <select name="my_test" id="my_test" class="frame-4342">
 <!--              <option value="" disabled selected> value </option>-->
               <option value="TSH">TSH</option>
@@ -89,7 +93,6 @@
 <!--            <button type="button" class="frame-43160"><div class="cancel poppins-medium-white-16px">Cancel</div></button>-->
           </div>
           </form>
-
         </div>
       </div>
     </div>

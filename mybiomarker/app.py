@@ -36,6 +36,7 @@ login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
+
 df = transform_blood_profile()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
