@@ -36,7 +36,6 @@ def profile_2():
             db.session.commit()
         if user:
             print("uesss")
-            flash('this record already exists')
 
     if current_user and current_user.is_authenticated:
         return render_template('test-2.html')
