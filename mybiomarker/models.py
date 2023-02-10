@@ -10,7 +10,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
 
 
-class MyData(db.Model):
+class MyDataV1(db.Model):
     id = db.Column(db.Integer, primary_key=True)   # primary keys are required by SQLAlchemy
     my_value = db.Column(db.Integer)
     my_unit = db.Column(db.String(100))
