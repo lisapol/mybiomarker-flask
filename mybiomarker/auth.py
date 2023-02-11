@@ -1,9 +1,9 @@
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from mybiomarker import db
-from mybiomarker.models import User
+from mybiomarker.models import User, MyDataV1
 # from mybiomarker.app import app
 
 auth = Blueprint('auth', __name__)
@@ -61,6 +61,14 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
     return redirect(url_for('auth.login'))
+
+
+@auth.route('/my_data',  methods=['POST', 'GET'])
+@login_required
+def my_data():
+    data = User.query.filter_by(email=current_user.email).first().email
+    data = [data]
+    return render_template('my-data.html', data=data)
 
 
 @auth.route('/logout')

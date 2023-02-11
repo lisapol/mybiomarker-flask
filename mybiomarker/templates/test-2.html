@@ -52,12 +52,15 @@
       <div class="iphone-13-mini-5 screen">
         <div class="overlap-group overlap">
           <div class="overlap-group1 overlap">
+              <br>
+              <br>
+              <br>
+              <form method="POST" action="{{ url_for('auth.my_data') }}">
+              <button class="add-record" style="background-color: #e1b1ba; color:white">show me all data</button>
+              </form>
           </div>
           <form method="POST" action="{{ url_for('main.profile_2') }}">
           <div class="frame-43429">
-              <br>
-              <button class="add-record" style="background-color: #e1b1ba; color:white">show me all data</button>
-              <br>
               <h3>💉  Enter your medical data: </h3>
 
             <select name="my_test" id="my_test" class="frame-4342">
