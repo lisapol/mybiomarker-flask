@@ -56,6 +56,8 @@
           <form method="POST" action="{{ url_for('main.profile_2') }}">
           <div class="frame-43429">
               <br>
+              <button class="add-record" style="background-color: #e1b1ba; color:white">show me all data</button>
+              <br>
               <h3>💉  Enter your medical data: </h3>
 
             <select name="my_test" id="my_test" class="frame-4342">
@@ -73,19 +75,21 @@
 <!--              <option value="" disabled selected>unit</option>-->
               <option value="mmol/L">mmol/L</option>
             </select>
+              <button class="add-record">add record</button>
               <br>
-              <h3>💊 Enter drugs or vitamins intake:</h3>
+              <h3> Enter drugs or vitamins intake:</h3>
               <input class="frame-4342" placeholder="vitamin name" name="vitamin_name">
               <label for="start_date">Start date:</label>
               <input class="frame-4342" placeholder="start date" id="start_date" type="date">
               <input class="frame-4342" placeholder="duration in days" name="duration">
+              <button class="add-record">add record</button>
               <br>
-              <h3>🩸 Enter information about your menstrual data:</h3>
-              <br>
+              <h3> Enter information about your menstrual data:</h3>
               <label for="menstrual_start_date">Start date:</label>
               <input class="frame-4342" placeholder="start date" id="menstrual_start_date" type="date">
               <label for="menstrual_end_date">End date:</label>
               <input class="frame-4342" placeholder="end date" type="date" id="menstrual_end_date">
+              <button class="add-record">add record</button>
           </div>
 <!--          <button type="button" class="frame-43163"> + add</button>-->
           <div class="frame-43430">

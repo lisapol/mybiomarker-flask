@@ -339,7 +339,19 @@
   justify-content: center;
   padding: 20px 10px;
   border: 0;
-  margin-top: 400px
+  margin-top: 600px
+}
+
+.iphone-13-mini-5 .add-record {
+  align-items: center;
+  background-color: #65c18c;
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 10px 10px;
+  font-family: var(--font-family-poppins);
+  border: 0;
 }
 
 .iphone-13-mini-5 .submit {
