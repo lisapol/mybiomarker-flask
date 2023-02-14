@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, request, flash, url_for
 from flask_login import login_required, current_user
 from mybiomarker import db
-from mybiomarker.models import MyDataV1
+from mybiomarker.models import Data
 
 main = Blueprint('main', __name__)
 
@@ -26,10 +26,10 @@ def profile_2():
         my_unit = request.form['my_unit']
         my_test = request.form['my_test']
 
-        user = MyDataV1.query.filter_by(my_value=my_value).first()
+        user = Data.query.filter_by(my_value=my_value).filter_by(email=current_user.email).first()
 
         if not user:
-            new_record = MyDataV1(my_value=my_value, my_unit=str(my_unit), my_test=my_test)
+            new_record = Data(email=current_user.email, my_value=my_value, my_unit=str(my_unit), my_test=my_test)
 
             # add the new user to the database
             db.session.add(new_record)

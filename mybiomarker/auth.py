@@ -3,7 +3,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from mybiomarker import db
-from mybiomarker.models import User, MyDataV1
+from mybiomarker.models import User, Data
 # from mybiomarker.app import app
 
 auth = Blueprint('auth', __name__)
@@ -66,8 +66,9 @@ def signup_post():
 @auth.route('/my_data',  methods=['POST', 'GET'])
 @login_required
 def my_data():
-    data = User.query.filter_by(email=current_user.email).first().email
-    data = [data]
+    # data = User.query.filter_by(email=current_user.email).first().email
+    # data = [data]
+    data = Data.query.filter_by(email=current_user.email).all()
     return render_template('my-data.html', data=data)
 
 

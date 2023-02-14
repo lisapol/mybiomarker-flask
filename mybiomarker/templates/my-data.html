@@ -17,16 +17,16 @@
   <thead>
     <tr>
         <th>test name</th>
-<!--        <th>test value</th>-->
-<!--        <th>test unit</th>-->
+        <th>test value</th>
+        <th>test unit</th>
     </tr>
     </thead>
     <tbody>
      {% for row in data %}
             <tr>
-                <td>{{row}}</td>
-<!--                <td>{{row[1]}}</td>-->
-<!--                <td>{{row[2]}}</td>-->
+                <td>{{row.my_value}}</td>
+                <td>{{row.my_unit}}</td>
+                <td>{{row.my_test}}</td>
             </tr>
         {% endfor %}
     </tbody>
