@@ -94,6 +94,7 @@
             <th>test name</th>
             <th>test value</th>
             <th>test unit</th>
+            <th>date time</th>
             <th></th>
         </tr>
         </thead>
@@ -103,7 +104,8 @@
                     <td>{{row.my_value}}</td>
                     <td>{{row.my_unit}}</td>
                     <td>{{row.my_test}}</td>
-                    <td><input style="background-color: #e1b1ba; color:white; border: none; border-radius: 3px " type="button" value="delete" onclick="deleteRow(this)"></td>
+                    <td>{{row.my_start_date}}</td>
+                    <td><input style="background-color: #e1b1ba; color:white; border: none; border-radius: 1px;font-size: 15px;" type="button" value="delete" onclick="deleteRow(this)"></td>
                 </tr>
             {% endfor %}
         </tbody>

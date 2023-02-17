@@ -10,11 +10,12 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
 
 
-class Data(db.Model):
+class DataV1(db.Model):
     id = db.Column(db.Integer, primary_key=True)   # primary keys are required by SQLAlchemy
     email = db.Column(db.String(100))
     my_value = db.Column(db.Integer)
     my_unit = db.Column(db.String(100))
     my_test = db.Column(db.String(1000))
+    my_start_date = db.Column(db.String(1000))
 
 
