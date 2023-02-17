@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
@@ -88,12 +88,13 @@
 
 <main>
 <div style="margin-top:100px; margin-left: 10px; overflow-x:auto;">
-    <table class="content-table">
+    <table class="content-table" id="myTable">
         <thead>
         <tr>
             <th>test name</th>
             <th>test value</th>
             <th>test unit</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -102,10 +103,18 @@
                     <td>{{row.my_value}}</td>
                     <td>{{row.my_unit}}</td>
                     <td>{{row.my_test}}</td>
+                    <td><input style="background-color: #e1b1ba; color:white; border: none; border-radius: 3px " type="button" value="delete" onclick="deleteRow(this)"></td>
                 </tr>
             {% endfor %}
         </tbody>
 </table>
+
+    <script>
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("myTable").deleteRow(i);
+}
+    </script>
 
 </div>
 
