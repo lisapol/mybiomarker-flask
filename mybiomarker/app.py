@@ -6,6 +6,7 @@ import gspread
 
 # dash libraries
 from dash import dcc, Dash, html, dash_table
+from plotly.subplots import make_subplots
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 
@@ -24,7 +25,9 @@ from mybiomarker import db
 from mybiomarker.models import User
 from mybiomarker.auth import auth as auth_blueprint
 from mybiomarker.main import main as main_blueprint
-from mybiomarker.data.transform_dataset import transform_blood_profile, transform_menstrual_data
+from mybiomarker.data.transform_dataset import (
+    transform_blood_profile, transform_menstrual_data, transform_vitamins_data
+)
 
 
 app = Flask(__name__)
@@ -38,6 +41,7 @@ login_manager.init_app(app)
 
 
 df = transform_blood_profile()
+df_vitamins = transform_vitamins_data()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 image_filename = f'{dir_path}/dash_app/girl.png'
@@ -67,6 +71,69 @@ def _find_profile(profile: str) -> list:
     if profile == 'inflammation':
         return ['C-reactive protein']
 
+
+def init_menstrual_plot(df_menstrual_sorted):
+    #     specs=[[{"secondary_y": True}]]
+    # )
+    fig_menstrual = go.Figure()
+
+    fig_menstrual.add_trace(
+        go.Bar(
+            y=df_menstrual_sorted['period_start'].to_list(),
+            x=df_menstrual_sorted['period_length'].to_list(),
+            name='period_length',
+            hovertemplate='%{x} days',
+            orientation='h',
+            marker=dict(
+                color="#eda4c0"
+            )
+
+        ),
+        #     secondary_y=True
+    )
+
+    fig_menstrual.add_trace(
+        go.Bar(
+            y=df_menstrual_sorted['period_start'].to_list(),
+            x=df_menstrual_sorted['cycle_length'].to_list(),
+            text=df_menstrual_sorted['cycle_length'],
+            texttemplate="%{text} days",
+            textposition='outside',
+            name='cycle_length',
+            orientation='h',
+            hovertemplate='%{x} days',
+            marker=dict(
+                color='rgba(58, 71, 80, 0.6)',
+            ),
+        ),
+        #     secondary_y=False,
+    )
+
+    fig_menstrual.update_layout(
+        barmode='stack',
+        plot_bgcolor='#f2f2f2',
+        title='menstrual period and cycle length over the entire period'
+    )
+
+    period_start_date_range = df_menstrual_sorted['period_start'].to_list()
+    cycle_end_date_range = df_menstrual_sorted['cycle_end'].to_list()
+
+    fig_menstrual.update_layout(
+        xaxis=dict(
+            tick0=0,
+            dtick=5, range=[0, 90]
+        ),
+    )
+
+    fig_menstrual.update_yaxes(
+        tickmode='array',
+        tickvals=period_start_date_range,
+    )
+
+    fig_menstrual.update_layout(
+        showlegend=False,
+    )
+    return fig_menstrual
 
 
 def plot_test(df, profile, dt='all'):
@@ -207,6 +274,37 @@ def initilise_dash_app(app):
         )
     ]
 
+    vitamins_cards = [
+        dbc.Card(
+            [
+                html.Label('The table of the current medications and vitamins.'),
+                dash_table.DataTable(df_vitamins.to_dict('records'),
+                                     [{"name": i, "id": i} for i in df_vitamins.columns],
+                                     style_data={'overflowY': 'scroll', 'maxHeight': '10%', },
+                                     page_size=8,
+                                     # style_cell={
+                                     #     'height': '10px',
+                                     #     'minWidth': '180px', 'width': '180px', 'maxWidth': '180px',
+                                     #     'whiteSpace': 'normal'
+                                     # }
+                                     ),
+            ],
+            body=True,
+            color="light",
+        ),
+    ]
+
+    menstrual_card = dbc.Card(
+        [
+            dcc.Graph(
+                id='graph1',
+                figure=init_menstrual_plot(df_menstrual_sorted=transform_menstrual_data()),
+            ),
+        ],
+        body=True,
+        color="light",
+    )
+
     dash_app = Dash(__name__,
                     external_stylesheets=[dbc.themes.MINTY],
                     suppress_callback_exceptions=True,
@@ -254,6 +352,10 @@ def initilise_dash_app(app):
                 dbc.Row([dbc.Col(graph) for graph in hh]),
                 html.Br(),
                 graphs,
+                html.Br(),
+                dbc.Row([dbc.Col(vitamins_cards)]),
+                html.Br(),
+                dbc.Row([dbc.Col(menstrual_card)]),
             ]
         elif active_tab == "histogram":
             return None

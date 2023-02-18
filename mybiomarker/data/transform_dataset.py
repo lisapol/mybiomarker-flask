@@ -18,6 +18,16 @@ def transform_blood_profile():
     return df
 
 
+def transform_vitamins_data():
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    df = pd.read_csv (f'{dir_path}/my_vitamins_data.csv')
+
+    return df[
+        ["id", "start_dt", "vitamin", "duration_in_days"]
+    ]
+
+
 def transform_menstrual_data():
     df_menstrual_data = [
     {'id': 4, 'period_start': '2022-08-09', 'period_end': '2022-08-14',},
