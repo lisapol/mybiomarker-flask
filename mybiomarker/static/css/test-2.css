@@ -368,13 +368,3 @@
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 1439px) {
-  .screen.full-project { 
-    display: none;
-   }
-}
-@media screen and (min-width: 1440px) {
-  .screen.iphone-13-mini-5 { 
-    display: none;
-   }
-}
