@@ -9,6 +9,7 @@ from dash import dcc, Dash, html, dash_table
 from plotly.subplots import make_subplots
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
+from mybiomarker.models import DataV1
 
 # visualisations
 import pandas as pd
@@ -17,7 +18,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # flask
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, login_required, current_user
 from flask import Flask, render_template, request, flash, redirect, url_for
 
 # mybiomarker
@@ -315,6 +316,8 @@ def initilise_dash_app(app):
     dash_app.layout = dbc.Container(
         [
             Header("Welcome back 👋", dash_app),
+            html.Div(id='user-name', className='link'),
+            html.Div(id='page-content'),
             html.Hr(),
             dbc.Tabs(
                 [
@@ -366,6 +369,13 @@ def initilise_dash_app(app):
         [Input("year-filter", "value"), Input("dt-filter", "value")],
     )
     def update_charts(Year, dt):
+
+        data = DataV1.query.filter_by(email=current_user.email).all()
+        my_list = []
+        for row in data:
+            my_list.append([row.my_value, row.my_test, row.my_start_date])
+        df = pd.DataFrame(my_list, columns=["test_results", "test_name_eng", "test_dt"])
+
         fig = plot_test(df, profile=Year, dt=dt)
         return fig
 
@@ -378,6 +388,17 @@ def initilise_dash_app(app):
         opts = show_all_dt_for_the_profile(name)
         options = [{'label': opt, 'value': opt} for opt in opts]
         return options
+
+    @dash_app.callback(
+        Output('user-name', 'children'),
+        [Input('page-content', 'children')]
+    )
+    def cur_user(input1):
+        if current_user.is_authenticated:
+            return html.Div('Current user: ' + current_user.email)
+            # 'User authenticated' return username in get_id()
+        else:
+            return ''
 
     return dash_app
 
