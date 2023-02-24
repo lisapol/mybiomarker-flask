@@ -21,7 +21,7 @@ def transform_blood_profile():
 def transform_vitamins_data():
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
-    df = pd.read_csv (f'{dir_path}/my_vitamins_data.csv')
+    df = pd.read_csv(f'{dir_path}/my_vitamins_data.csv')
 
     return df[
         ["id", "start_dt", "vitamin", "duration_in_days"]

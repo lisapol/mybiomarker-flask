@@ -9,7 +9,7 @@ from dash import dcc, Dash, html, dash_table
 from plotly.subplots import make_subplots
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-from mybiomarker.models import DataV1
+from mybiomarker.models import DataV1, MyVitamins
 
 # visualisations
 import pandas as pd
@@ -30,7 +30,6 @@ from mybiomarker.data.transform_dataset import (
     transform_blood_profile, transform_menstrual_data, transform_vitamins_data
 )
 
-
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
@@ -40,9 +39,17 @@ login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
-
 df = transform_blood_profile()
 df_vitamins = transform_vitamins_data()
+
+
+def vitamin():
+    data = MyVitamins.query.filter_by(email=current_user.email).all()
+    my_list = []
+    for row in data:
+        my_list.append([row.id, row.start_date, row.vitamin_name, row.duration])
+    return pd.DataFrame(my_list, columns=["id", "start_dt", "vitamin", "duration_in_days"])
+
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 image_filename = f'{dir_path}/dash_app/girl.png'
@@ -195,6 +202,7 @@ def LabeledSelect(label, **kwargs):
 
 popover_children = "I am a popover!"
 
+
 def initilise_dash_app(app):
     # Card components
     cards = [
@@ -230,9 +238,7 @@ def initilise_dash_app(app):
         ),
     ]
 
-
     keys = ['lipid', 'thyroid', 'inflammation']
-
 
     graphs = dbc.Row(
         [
@@ -335,6 +341,7 @@ def initilise_dash_app(app):
         if view_function.startswith(dash_app.config.url_base_pathname):
             dash_app.server.view_functions[view_function] = login_required(
                 dash_app.server.view_functions[view_function])
+
     @dash_app.callback(
         Output("tab-content", "children"),
         [Input("tabs", "active_tab")],
@@ -356,13 +363,30 @@ def initilise_dash_app(app):
                 html.Br(),
                 graphs,
                 html.Br(),
-                dbc.Row([dbc.Col(vitamins_cards)]),
+                dbc.Row([dbc.Col([
+                    dbc.Card(
+                        [
+                            html.Label('The table of the current medications and vitamins.'),
+                            dash_table.DataTable(vitamin().to_dict('records'),
+                                                 [{"name": i, "id": i} for i in df_vitamins.columns],
+                                                 style_data={'overflowY': 'scroll', 'maxHeight': '10%', },
+                                                 page_size=8,
+                                                 # style_cell={
+                                                 #     'height': '10px',
+                                                 #     'minWidth': '180px', 'width': '180px', 'maxWidth': '180px',
+                                                 #     'whiteSpace': 'normal'
+                                                 # }
+                                                 ),
+                        ],
+                        body=True,
+                        color="light",
+                    ),
+                ])]),
                 html.Br(),
                 dbc.Row([dbc.Col(menstrual_card)]),
             ]
         elif active_tab == "histogram":
             return None
-
 
     @dash_app.callback(
         Output("bar", "figure"),
@@ -378,7 +402,6 @@ def initilise_dash_app(app):
 
         fig = plot_test(df, profile=Year, dt=dt)
         return fig
-
 
     @dash_app.callback(
         dash.dependencies.Output('dt-filter', 'options'),
@@ -404,6 +427,7 @@ def initilise_dash_app(app):
 
 
 dash_app = initilise_dash_app(app)
+
 
 @app.route('/')
 def index():
