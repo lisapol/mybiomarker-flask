@@ -2,5 +2,10 @@
 .idea/
 mybiomarker/static/img/
 mybiomarker/__pycache__/
+mybiomarker/data/__pycache__/
 .env
 venv
+.ipynb
+mybiomarker/test.png
+mybiomarker/parse_text.py
+dashboard.ipynb

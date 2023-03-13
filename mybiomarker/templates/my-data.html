@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
-    <meta name="og:type" content="website" />
-    <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="../static/css/test-2.css" />
-      <link rel="stylesheet" type="text/css" href="../static/css/styleguide-2.css" />
-      <link rel="stylesheet" type="text/css" href="../static/css/globals-2.css" />
-      <script src='../static/js/test.js' defer></script>
+    <meta charset="utf-8"/>
+    <meta name="og:type" content="website"/>
+    <meta name="twitter:card" content="photo"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/test-2.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/styleguide-2.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/globals-2.css"/>
+    <script src='../static/js/test.js' defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../static/img/favicon-32x32.png" sizes="32x32"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/png" href="../static/img/favicon-32x32.png" sizes="32x32"/>
     <link rel="stylesheet" href="../static/css/master.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  </head>
+</head>
 <body style="margin: 0; background: #ffffff">>
 <style>
 
@@ -58,6 +58,7 @@
     color: #e1b1ba;
 }
 
+
 </style>
 
 <a id="top"></a>
@@ -74,9 +75,9 @@
     </div>
 </div>
 
-  <header>
+<header>
     <div class="container justify-between">
-        <img class='logo-2' src="../static/img/key-features-img-2.svg" alt="" >
+        <img class='logo-2' src="../static/img/key-features-img-2.svg" alt="">
         <nav>
             <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
             <a href="{{ url_for('main.dirty_bird') }}" class="navbar-item">Upload</a>
@@ -87,38 +88,41 @@
 </header>
 
 <main>
-<div style="margin-top:100px; margin-left: 10px; overflow-x:auto;">
-    <table class="content-table" id="myTable">
-        <thead>
-        <tr>
-            <th>test name</th>
-            <th>test value</th>
-            <th>test unit</th>
-            <th>date time</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-         {% for row in data %}
-                <tr>
-                    <td>{{row.my_value}}</td>
-                    <td>{{row.my_unit}}</td>
-                    <td>{{row.my_test}}</td>
-                    <td>{{row.my_start_date}}</td>
-                    <td><input style="background-color: #e1b1ba; color:white; border: none; border-radius: 1px;font-size: 15px;" type="button" value="delete" onclick="deleteRow(this)"></td>
-                </tr>
+    <div style="margin-top:100px; margin-left: 10px; overflow-x:auto;">
+        <table class="content-table" id="myTable">
+            <thead>
+            <tr>
+                <th>test name</th>
+                <th>test value</th>
+                <th>test unit</th>
+                <th>date time</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{row.my_value}}</td>
+                <td>{{row.my_unit}}</td>
+                <td>{{row.my_test}}</td>
+                <td>{{row.my_start_date}}</td>
+                <td><input
+                        style="background-color: #e1b1ba; color:white; border: none; border-radius: 1px;font-size: 15px;"
+                        type="button" value="delete" onclick="deleteRow(this)"></td>
+            </tr>
             {% endfor %}
-        </tbody>
-</table>
+            </tbody>
+        </table>
 
-    <script>
+        <script>
 function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
     document.getElementById("myTable").deleteRow(i);
 }
-    </script>
 
-</div>
+        </script>
+
+    </div>
 
 </main>
 

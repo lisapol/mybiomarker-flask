@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/css/test.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src='../static/js/test.js' defer></script>
+    <link rel="icon" type="image/png" href="../static/img/favicon-32x32.png" sizes="32x32"/>
     <title>MyBioMarker</title>
     <meta name="google-site-verification" content="3Jnh_S0jF1X4B6rsGfrOaZu78m8ojphB4TKzrEsUoeM"/>
 </head>
@@ -29,39 +30,39 @@
 <div class="mobile-menu">
     <div class="mobile-menu-content">
         <div class="mobile-content-item">
-             <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
+            <a href="{{ url_for('main.jj') }}" class="navbar-item">Dashboard</a>
             <img class='close' src="../static/img/icons/close.svg" alt="">
         </div>
         <nav>
-             <a href="{{ url_for('main.profile_2') }}" class="navbar-item">Results</a>
-             <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
+            <a href="{{ url_for('main.profile_2') }}" class="navbar-item">Results</a>
+            <a href="{{ url_for('auth.logout') }}" class="navbar-item">Log Out</a>
         </nav>
     </div>
 </div>
 <main>
 
-<section>
-    <div class="container">
-        <div>
-            <br />
-            <br />
-            <br />
-            <h1>Upload Your Documents 💉</h1>
-            <img class="vector-1" src="../static/img/main/vector-1.svg" alt="Vector 1" />
+    <section>
+        <div class="container">
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                <h1>Upload Your Documents 💉</h1>
+                <img class="vector-1" src="../static/img/main/vector-1.svg" alt="Vector 1"/>
 
-<!--            <p class='content-item'>-->
-<!--                We give you in-depth insights of your health based on the results-->
-<!--                of your pre-made medical tests.</p>-->
-            <br /><br /> <br />
-            <div class="overlap-group">
-                <img class="rectangle" id="buttonid" src="../static/img/main/rectangle.gif" alt="Rectangle" />
-                 <input id='fileid' type='file' hidden/>
-                <div class="upload"> Upload a blood test </div>
-            </div>
+                <!--            <p class='content-item'>-->
+                <!--                We give you in-depth insights of your health based on the results-->
+                <!--                of your pre-made medical tests.</p>-->
+                <br/><br/> <br/>
+                <div class="overlap-group">
+                    <img class="rectangle" id="buttonid" src="../static/img/main/rectangle.gif" alt="Rectangle"/>
+                    <input id='fileid' type='file' hidden/>
+                    <div class="upload"> Upload a blood test</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
 
 </main>
 
