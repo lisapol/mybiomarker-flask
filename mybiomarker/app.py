@@ -448,7 +448,10 @@ app.register_blueprint(auth_blueprint)
 app.register_blueprint(main_blueprint)
 
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except:
+        pass
 
 if __name__ == '__main__':
     app.debug = True
