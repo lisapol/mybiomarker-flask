@@ -32,8 +32,11 @@ from mybiomarker.data.transform_dataset import (
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-SQLALCHEMY_DATABASE_URI = os.environ.get('DB_URL') or 'sqlite:///db.sqlite'
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+SQLALCHEMY_DATABASE_URI = os.environ.get('HEROKU_POSTGRESQL_JADE') or 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    SQLALCHEMY_DATABASE_URI[:8] + 'ql' + SQLALCHEMY_DATABASE_URI[8:] if SQLALCHEMY_DATABASE_URI.startswith('p')
+    else SQLALCHEMY_DATABASE_URI
+)
 db.init_app(app)
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
