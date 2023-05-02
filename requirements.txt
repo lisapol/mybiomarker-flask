@@ -9,7 +9,7 @@ dash-core-components==2.0.0
 dash-html-components==2.0.0
 dash-renderer==1.9.1
 dash-table==5.0.0
-Flask==2.2.2
+Flask==2.3.2
 Flask-SQLAlchemy==3.0.2
 future==0.18.3
 google-auth==2.16.0
